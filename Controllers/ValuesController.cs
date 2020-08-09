@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BirdwachingApi.Data;
 using BirdwachingApi.Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BirdwachingApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -28,7 +30,7 @@ namespace BirdwachingApi.Controllers
             return await _context.Values.ToListAsync();
         }
 
-        // GET: api/Values/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<Value>> GetValue(int id)
         {
