@@ -12,12 +12,6 @@
 @import'//wwwroot/alertify.css';
 /* You can add global styles to this file, and also import other style files */
 /* Provide sufficient contrast against white background */
-
-nav.bg-dark {
-    background-color: #4996ff !important;
-}
-
-
 .alertify .ajs-dialog {
     position: relative;
     margin: 5% auto;

@@ -15,6 +15,10 @@ import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListsComponent } from './lists/lists.component';
+import { MemberListComponent } from './member-list/member-list.component';
+import { MessagesComponent } from './messages/messages.component';
+import { appRoutes } from './routes';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CounterComponent,
     FetchDataComponent,
     NavComponent,
-    RegisterComponent
+    RegisterComponent,
+    ListsComponent,
+    MemberListComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,12 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       FormsModule,
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-        { path: 'fetch-data', component: FetchDataComponent },
-        
-    ])
+      RouterModule.forRoot(appRoutes)
   ],
     providers: [
        // AuthService,
