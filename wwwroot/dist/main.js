@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\r\n    <a class=\"navbar-brand\" href=\"#\">Birdwaching App</a>\r\n\r\n    <ul class=\"navbar-nav mr-auto\">\r\n        <li class=\"nav-item active\">\r\n            <a class=\"nav-link\" href=\"#\">Matches</a>\r\n        </li>\r\n        <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Lists</a>\r\n        </li>\r\n        <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Messagesd</a>\r\n        </li>\r\n        <li class=\"nav-item\">\r\n            <a class=\"nav-link\" (click)=\"logout()\">Logout</a>\r\n        </li>\r\n\r\n    </ul>\r\n\r\n    <div *ngIf=\"loggedIn()\" class=\"dropdown\">\r\n        <a class=\"dropdown-toggle text-light\">\r\n            Welcome {{authService.decodedToken?.unique_name | titlecase}}\r\n        </a>\r\n\r\n        <div class=\"dropdown-menu\">\r\n            <a class=\"dropdown-item\" href=\"#\"><i class=\"fas fa-user\"></i>Edit Profile</a>\r\n            <div class=\"dropdown-divider\"></div>\r\n            <a class=\"dropdown-item\" href=\"#\"><i class=\"fa-user fa-sign-out\"></i>Logout</a>\r\n        </div>\r\n    </div>\r\n\r\n    <form *ngIf=\"!loggedIn()\" #loginForm=\"ngForm\" class=\"form-inline my-2 my-lg-0\" (ngSubmit)=\"login()\">\r\n        <input class=\"form-control mr-sm-2\" type=\"text\" name=\"username\"\r\n               placeholder=\"Username\" required [(ngModel)]=\"model.username\">\r\n        <input class=\"form-control mr-sm-2\" type=\"password\" name=\"password\"\r\n               placeholder=\"Password\" required [(ngModel)]=\"model.password\">\r\n        <button [disabled]=\"!loginForm.valid\" class=\"btn btn-success my-2 my-sm-0\" type=\"submit\">Login</button>\r\n    </form>\r\n\r\n</nav>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\r\n    <div class=\"container\">\r\n        <a class=\"navbar-brand\" href=\"#\">DatingApp</a>\r\n\r\n        <ul *ngIf=\"loggedIn()\" class=\"navbar-nav mr-auto\">\r\n            <li class=\"nav-item active\">\r\n                <a class=\"nav-link\" href=\"#\">Matches</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\">Lists</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\">Messages</a>\r\n            </li>\r\n        </ul>\r\n\r\n        <div *ngIf=\"loggedIn()\" class=\"dropdown\" dropdown>\r\n            <a class=\"dropdown-toggle text-light\" dropdownToggle>\r\n                Welcome {{ authService.decodedToken?.unique_name | titlecase }}\r\n            </a>\r\n\r\n            <div class=\"dropdown-menu mt-3\" *dropdownMenu>\r\n                <a class=\"dropdown-item\" href=\"#\"><i class=\"fa fa-user\"></i> Edit Profile</a>\r\n                <div class=\"dropdown-item\"></div>\r\n                <a class=\"dropdown-item\" (click)=\"logout()\"><i class=\"fa fa-sign-out\"></i> Logout</a>\r\n            </div>\r\n        </div>\r\n\r\n        <form *ngIf=\"!loggedIn()\"\r\n              #loginForm=\"ngForm\"\r\n              class=\"form-inline my-2 my-lg-0\"\r\n              (ngSubmit)=\"login()\">\r\n            <input class=\"form-control mr-sm-2\"\r\n                   type=\"text\"\r\n                   placeholder=\"Username\"\r\n                   name=\"username\"\r\n                   required\r\n                   [(ngModel)]=\"model.username\" />\r\n            <input class=\"form-control mr-sm-2\"\r\n                   type=\"password\"\r\n                   placeholder=\"Password\"\r\n                   name=\"password\"\r\n                   required\r\n                   [(ngModel)]=\"model.password\" />\r\n            <button [disabled]=\"!loginForm.valid\"\r\n                    class=\"btn btn-primary my-2 my-sm-0\"\r\n                    type=\"submit\">\r\n                Login\r\n            </button>\r\n        </form>\r\n    </div>\r\n</nav>\r\n");
 
 /***/ }),
 
@@ -388,6 +388,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nav_nav_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./nav/nav.component */ "./src/app/nav/nav.component.ts");
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
 /* harmony import */ var _services_error_interceptor__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./_services/error.interceptor */ "./src/app/_services/error.interceptor.ts");
+/* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "./node_modules/ngx-bootstrap/dropdown/fesm2015/ngx-bootstrap-dropdown.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -397,6 +399,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
 
 
 
@@ -427,6 +431,8 @@ AppModule = __decorate([
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_14__["BrowserAnimationsModule"],
+            ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_13__["BsDropdownModule"].forRoot(),
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot([
                 { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"], pathMatch: 'full' },
                 { path: 'counter', component: _counter_counter_component__WEBPACK_IMPORTED_MODULE_8__["CounterComponent"] },
@@ -673,7 +679,7 @@ NavMenuComponent = __decorate([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL25hdi9uYXYuY29tcG9uZW50LmNzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".dropdown-toggle,\r\n.dropdown-item {\r\n    cursor: pointer;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2L25hdi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztJQUVJLGVBQWU7QUFDbkIiLCJmaWxlIjoic3JjL2FwcC9uYXYvbmF2LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZHJvcGRvd24tdG9nZ2xlLFxyXG4uZHJvcGRvd24taXRlbSB7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
