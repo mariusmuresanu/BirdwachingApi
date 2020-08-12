@@ -74,7 +74,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\n    <div class=\"card-img-wrapper\">\n        <img class=\"card-img-top\"\n             src=\"{{ user.photoUrl }}\"\n             alt=\"{{ user.knownAs }}\" />\n        <ul class=\"list-inline member-icons animate text-center\">\n            <li class=\"list-inline-item\"> <button class=\"btn btn-primary\"><i class=\"fa fa-user\">1</i></button></li>\n            <li class=\"list-inline-item\"> <button class=\"btn btn-primary\"><i class=\"fa fa-heart\">2</i></button></li>\n            <li class=\"list-inline-item\"><button class=\"btn btn-primary\"><i class=\"fa fa-envelope\">3</i></button></li>\n        </ul>\n    </div>\n    <div class=\"card-body p-1\">\n        <h6 class=\"card-title text-center mb-1\">\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\n        </h6>\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\n    </div>\n\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\n    <div class=\"card-img-wrapper\">\n        <img class=\"card-img-top\"\n             src=\"{{ user.photoUrl }}\"\n             alt=\"{{ user.knownAs }}\" />\n        <ul class=\"list-inline member-icons animate text-center\">\n            <li class=\"list-inline-item\">\n            <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\">\n                <i class=\"fa fa-user\">1</i></button></li>\n            <li class=\"list-inline-item\">\n            <button class=\"btn btn-primary\">\n                <i class=\"fa fa-heart\">2</i></button></li>\n            <li class=\"list-inline-item\">\n            <button class=\"btn btn-primary\">\n                <i class=\"fa fa-envelope\">3</i></button></li>\n        </ul>\n    </div>\n    <div class=\"card-body p-1\">\n        <h6 class=\"card-title text-center mb-1\">\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\n        </h6>\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\n    </div>\n\n\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-detail/member-detail.component.html":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-detail/member-detail.component.html ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container mt-4\">\n    <div class=\"row\">\n        <div class=\"col-sm-4\">\n            <div class=\"card\">\n                <img class=\"card-img-top img-thumbnail\" src=\"{{user?.photoUrl}}\" alt=\"{{user?.knownAs}}\">\n                <div class=\"card-body\">\n                    <div>\n                        <strong>Location</strong>\n                        <p>{{user?.city}}, {{user?.country}}</p>\n                    </div>\n                    <div>\n                        <strong>Age</strong>\n                        <p>{{user?.age}}</p>\n                    </div>\n                    <div>\n                        <strong>Last Active</strong>\n                        <p>{{user?.lastActive}}</p>\n                    </div>\n                    <div>\n                        <strong>Member since</strong>\n                        <p>{{user?.created}}</p>\n                    </div>\n                </div>\n                <div class=\"card-footer\">\n                    <div class=\"btn-group d-flex\">\n                        <button class=\"btn btn-primary  w-100\">Like</button>\n                        <button class=\"btn btn-success  w-100\">Message</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-sm-8\">\n\n    </div>\n\n</div>\n\n\n");
 
 /***/ }),
 
@@ -566,6 +579,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./routes */ "./src/app/routes.ts");
 /* harmony import */ var _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./members/member-card/member-card.component */ "./src/app/members/member-card/member-card.component.ts");
+/* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -575,6 +589,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -614,7 +629,8 @@ AppModule = __decorate([
             _lists_lists_component__WEBPACK_IMPORTED_MODULE_16__["ListsComponent"],
             _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_17__["MemberListComponent"],
             _messages_messages_component__WEBPACK_IMPORTED_MODULE_18__["MessagesComponent"],
-            _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_20__["MemberCardComponent"]
+            _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_20__["MemberCardComponent"],
+            _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_21__["MemberDetailComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
@@ -914,6 +930,84 @@ MemberCardComponent = __decorate([
     }),
     __metadata("design:paramtypes", [])
 ], MemberCardComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/member-detail/member-detail.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/members/member-detail/member-detail.component.css ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n.img-thumbnail {\r\n    margin: 25px;\r\n    width: 85%;\r\n    height: 85%;\r\n}\r\n\r\n.card-body {\r\n    padding: 0 25px;\r\n}\r\n\r\n.card-footer {\r\n    padding: 10px 15px;\r\n    background-color: #fff;\r\n    border-top: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy9tZW1iZXItZGV0YWlsL21lbWJlci1kZXRhaWwuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7SUFDSSxZQUFZO0lBQ1osVUFBVTtJQUNWLFdBQVc7QUFDZjs7QUFFQTtJQUNJLGVBQWU7QUFDbkI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsc0JBQXNCO0lBQ3RCLGdCQUFnQjtBQUNwQiIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvbWVtYmVyLWRldGFpbC9tZW1iZXItZGV0YWlsLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuLmltZy10aHVtYm5haWwge1xyXG4gICAgbWFyZ2luOiAyNXB4O1xyXG4gICAgd2lkdGg6IDg1JTtcclxuICAgIGhlaWdodDogODUlO1xyXG59XHJcblxyXG4uY2FyZC1ib2R5IHtcclxuICAgIHBhZGRpbmc6IDAgMjVweDtcclxufVxyXG5cclxuLmNhcmQtZm9vdGVyIHtcclxuICAgIHBhZGRpbmc6IDEwcHggMTVweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmY7XHJcbiAgICBib3JkZXItdG9wOiBub25lO1xyXG59XHJcbiJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/members/member-detail/member-detail.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/members/member-detail/member-detail.component.ts ***!
+  \******************************************************************/
+/*! exports provided: MemberDetailComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MemberDetailComponent", function() { return MemberDetailComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../_services/user.service */ "./src/app/_services/user.service.ts");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+let MemberDetailComponent = class MemberDetailComponent {
+    constructor(userService, alertify, route) {
+        this.userService = userService;
+        this.alertify = alertify;
+        this.route = route;
+    }
+    ngOnInit() {
+        this.loadUser();
+    }
+    loadUser() {
+        this.userService.getUser(+this.route.snapshot.params['id']).subscribe((user) => {
+            this.user = user;
+        }, error => {
+            this.alertify.error(error);
+        });
+    }
+};
+MemberDetailComponent.ctorParameters = () => [
+    { type: _services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"] },
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }
+];
+MemberDetailComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-member-detail',
+        template: __importDefault(__webpack_require__(/*! raw-loader!./member-detail.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-detail/member-detail.component.html")).default,
+        styles: [__importDefault(__webpack_require__(/*! ./member-detail.component.css */ "./src/app/members/member-detail/member-detail.component.css")).default]
+    }),
+    __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
+], MemberDetailComponent);
 
 
 
@@ -1291,9 +1385,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
 /* harmony import */ var _lists_lists_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lists/lists.component */ "./src/app/lists/lists.component.ts");
 /* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_guards/auth.guard */ "./src/app/_guards/auth.guard.ts");
+/* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -1307,6 +1403,7 @@ const appRoutes = [
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]],
         children: [
             { path: 'members', component: _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_1__["MemberListComponent"] },
+            { path: 'members/:id', component: _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_5__["MemberDetailComponent"] },
             { path: 'messages', component: _messages_messages_component__WEBPACK_IMPORTED_MODULE_2__["MessagesComponent"] },
             { path: 'lists', component: _lists_lists_component__WEBPACK_IMPORTED_MODULE_3__["ListsComponent"] }
         ]
