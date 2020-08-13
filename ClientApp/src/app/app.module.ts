@@ -29,6 +29,7 @@ import { MemberDetailResolver } from './_resolvers/member-detail.resolvers';
 import { MemberListResolver } from './_resolvers/member-list.resolvers';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 
 
@@ -83,6 +84,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
         MemberDetailResolver,
         MemberListResolver,
         MemberEditResolver,
+        PreventUnsavedChanges,
         { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
     ],
   bootstrap: [AppComponent]
