@@ -26,6 +26,7 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolvers';
 import { MemberListResolver } from './_resolvers/member-list.resolvers';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 
 
 
@@ -53,7 +54,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
     MemberListComponent,
     MessagesComponent,
     MemberCardComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    MemberEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

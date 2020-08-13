@@ -91,6 +91,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-edit/member-edit.component.html":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-edit/member-edit.component.html ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>member-edit works!</p>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-list/member-list.component.html":
 /*!******************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-list/member-list.component.html ***!
@@ -139,7 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-primary\">\r\n    <div class=\"container\">\r\n        <a class=\"navbar-brand\" [routerLink]=\"['/home']\">BirdwachingApp</a>\r\n\r\n        <ul *ngIf=\"loggedIn()\" class=\"navbar-nav mr-auto\">\r\n            <li class=\"nav-item\" routerLinkActive=\"active\">\r\n                <a class=\"nav-link\" [routerLink]=\"['/members']\">Matches</a>\r\n            </li>\r\n            <li class=\"nav-item\" routerLinkActive=\"active\">\r\n                <a class=\"nav-link\" [routerLink]=\"['/lists']\">Lists</a>\r\n            </li>\r\n            <li class=\"nav-item\" routerLinkActive=\"active\">\r\n                <a class=\"nav-link\" [routerLink]=\"['/messages']\">Messages</a>\r\n            </li>\r\n        </ul>\r\n\r\n        <div *ngIf=\"loggedIn()\" class=\"dropdown\" dropdown>\r\n            <a class=\"dropdown-toggle text-light\" dropdownToggle>\r\n                Welcome {{ authService.decodedToken?.unique_name | titlecase }}\r\n            </a>\r\n\r\n            <div class=\"dropdown-menu mt-3\" *dropdownMenu>\r\n                <a class=\"dropdown-item\" href=\"#\"><i class=\"fa fa-user\"></i> Edit Profile</a>\r\n                <div class=\"dropdown-item\"></div>\r\n                <a class=\"dropdown-item\" (click)=\"logout()\"><i class=\"fa fa-sign-out\"></i> Logout</a>\r\n            </div>\r\n        </div>\r\n\r\n        <form *ngIf=\"!loggedIn()\"\r\n              #loginForm=\"ngForm\"\r\n              class=\"form-inline my-2 my-lg-0\"\r\n              (ngSubmit)=\"login()\">\r\n            <input class=\"form-control mr-sm-2\"\r\n                   type=\"text\"\r\n                   placeholder=\"Username\"\r\n                   name=\"username\"\r\n                   required\r\n                   [(ngModel)]=\"model.username\" />\r\n            <input class=\"form-control mr-sm-2\"\r\n                   type=\"password\"\r\n                   placeholder=\"Password\"\r\n                   name=\"password\"\r\n                   required\r\n                   [(ngModel)]=\"model.password\" />\r\n            <button [disabled]=\"!loginForm.valid\"\r\n                    class=\"btn btn-primary my-2 my-sm-0\"\r\n                    type=\"submit\">\r\n                Login\r\n            </button>\r\n        </form>\r\n    </div>\r\n</nav>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-primary\">\r\n    <div class=\"container\">\r\n        <a class=\"navbar-brand\" [routerLink]=\"['/home']\">BirdwachingApp</a>\r\n\r\n        <ul *ngIf=\"loggedIn()\" class=\"navbar-nav mr-auto\">\r\n            <li class=\"nav-item\" routerLinkActive=\"active\">\r\n                <a class=\"nav-link\" [routerLink]=\"['/members']\">Matches</a>\r\n            </li>\r\n            <li class=\"nav-item\" routerLinkActive=\"active\">\r\n                <a class=\"nav-link\" [routerLink]=\"['/lists']\">Lists</a>\r\n            </li>\r\n            <li class=\"nav-item\" routerLinkActive=\"active\">\r\n                <a class=\"nav-link\" [routerLink]=\"['/messages']\">Messages</a>\r\n            </li>\r\n        </ul>\r\n\r\n        <div *ngIf=\"loggedIn()\" class=\"dropdown\" dropdown>\r\n            <a class=\"dropdown-toggle text-light\" dropdownToggle>\r\n                Welcome {{ authService.decodedToken?.unique_name | titlecase }}\r\n            </a>\r\n\r\n            <div class=\"dropdown-menu mt-3\" *dropdownMenu>\r\n                <a class=\"dropdown-item\" [routerLink]=\"['/member/edit']\">\r\n                <i class=\"fa fa-user\"></i> Edit Profile</a>\r\n                <div class=\"dropdown-item\"></div>\r\n                <a class=\"dropdown-item\" (click)=\"logout()\">\r\n                <i class=\"fa fa-sign-out\"></i> Logout</a>\r\n            </div>\r\n        </div>\r\n\r\n        <form *ngIf=\"!loggedIn()\"\r\n              #loginForm=\"ngForm\"\r\n              class=\"form-inline my-2 my-lg-0\"\r\n              (ngSubmit)=\"login()\">\r\n            <input class=\"form-control mr-sm-2\"\r\n                   type=\"text\"\r\n                   placeholder=\"Username\"\r\n                   name=\"username\"\r\n                   required\r\n                   [(ngModel)]=\"model.username\" />\r\n            <input class=\"form-control mr-sm-2\"\r\n                   type=\"password\"\r\n                   placeholder=\"Password\"\r\n                   name=\"password\"\r\n                   required\r\n                   [(ngModel)]=\"model.password\" />\r\n            <button [disabled]=\"!loginForm.valid\"\r\n                    class=\"btn btn-primary my-2 my-sm-0\"\r\n                    type=\"submit\">\r\n                Login\r\n            </button>\r\n        </form>\r\n    </div>\r\n</nav>\r\n");
 
 /***/ }),
 
@@ -714,6 +727,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
 /* harmony import */ var _resolvers_member_detail_resolvers__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./_resolvers/member-detail.resolvers */ "./src/app/_resolvers/member-detail.resolvers.ts");
 /* harmony import */ var _resolvers_member_list_resolvers__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./_resolvers/member-list.resolvers */ "./src/app/_resolvers/member-list.resolvers.ts");
+/* harmony import */ var _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./members/member-edit/member-edit.component */ "./src/app/members/member-edit/member-edit.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -723,6 +737,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -777,7 +792,8 @@ AppModule = __decorate([
             _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_19__["MemberListComponent"],
             _messages_messages_component__WEBPACK_IMPORTED_MODULE_20__["MessagesComponent"],
             _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_22__["MemberCardComponent"],
-            _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_23__["MemberDetailComponent"]
+            _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_23__["MemberDetailComponent"],
+            _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_26__["MemberEditComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
@@ -1186,6 +1202,61 @@ MemberDetailComponent = __decorate([
 
 /***/ }),
 
+/***/ "./src/app/members/member-edit/member-edit.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/members/member-edit/member-edit.component.css ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvbWVtYmVyLWVkaXQvbWVtYmVyLWVkaXQuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/members/member-edit/member-edit.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/members/member-edit/member-edit.component.ts ***!
+  \**************************************************************/
+/*! exports provided: MemberEditComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MemberEditComponent", function() { return MemberEditComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+let MemberEditComponent = class MemberEditComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+MemberEditComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-member-edit',
+        template: __importDefault(__webpack_require__(/*! raw-loader!./member-edit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-edit/member-edit.component.html")).default,
+        styles: [__importDefault(__webpack_require__(/*! ./member-edit.component.css */ "./src/app/members/member-edit/member-edit.component.css")).default]
+    }),
+    __metadata("design:paramtypes", [])
+], MemberEditComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/members/member-list/member-list.component.css":
 /*!***************************************************************!*\
   !*** ./src/app/members/member-list/member-list.component.css ***!
@@ -1567,9 +1638,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
 /* harmony import */ var _resolvers_member_detail_resolvers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./_resolvers/member-detail.resolvers */ "./src/app/_resolvers/member-detail.resolvers.ts");
 /* harmony import */ var _resolvers_member_list_resolvers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./_resolvers/member-list.resolvers */ "./src/app/_resolvers/member-list.resolvers.ts");
+/* harmony import */ var _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./members/member-edit/member-edit.component */ "./src/app/members/member-edit/member-edit.component.ts");
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -1592,6 +1665,7 @@ const appRoutes = [
             { path: 'members/:id', component: _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_5__["MemberDetailComponent"],
                 resolve: { user: _resolvers_member_detail_resolvers__WEBPACK_IMPORTED_MODULE_6__["MemberDetailResolver"] }
             },
+            { path: 'member/edit', component: _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_8__["MemberEditComponent"] },
             { path: 'messages', component: _messages_messages_component__WEBPACK_IMPORTED_MODULE_2__["MessagesComponent"] },
             { path: 'lists', component: _lists_lists_component__WEBPACK_IMPORTED_MODULE_3__["ListsComponent"] }
         ]
