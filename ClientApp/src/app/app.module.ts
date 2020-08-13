@@ -16,6 +16,7 @@ import { AuthService } from './_services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { TabsModule } from 'ngx-bootstrap/tabs'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListsComponent } from './lists/lists.component';
@@ -60,7 +61,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
+      HttpClientModule,
+      AngularFontAwesomeModule,
       FormsModule,
       BrowserAnimationsModule,
       TabsModule.forRoot(),

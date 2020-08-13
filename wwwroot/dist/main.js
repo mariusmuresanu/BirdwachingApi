@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\n    <div class=\"card-img-wrapper\">\n        <img class=\"card-img-top\"\n             src=\"{{ user.photoUrl }}\"\n             alt=\"{{ user.knownAs }}\" />\n        <ul class=\"list-inline member-icons animate text-center\">\n            <li class=\"list-inline-item\">\n            <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\">\n                <i class=\"fa fa-user\">1</i></button></li>\n            <li class=\"list-inline-item\">\n            <button class=\"btn btn-primary\">\n                <i class=\"fa fa-heart\">2</i></button></li>\n            <li class=\"list-inline-item\">\n            <button class=\"btn btn-primary\">\n                <i class=\"fa fa-envelope\">3</i></button></li>\n        </ul>\n    </div>\n    <div class=\"card-body p-1\">\n        <h6 class=\"card-title text-center mb-1\">\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\n        </h6>\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\n    </div>\n\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\n    <div class=\"card-img-wrapper\">\n        <img class=\"card-img-top\"\n             src=\"{{ user.photoUrl }}\"\n             alt=\"{{ user.knownAs }}\" />\n        <ul class=\"list-inline member-icons animate text-center\">\n            <li class=\"list-inline-item\">\n            <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\">\n                <i class=\"fa fa-user\"></i></button></li>\n            <li class=\"list-inline-item\">\n            <button class=\"btn btn-primary\">\n                <i class=\"fa fa-heart\"></i></button></li>\n            <li class=\"list-inline-item\">\n            <button class=\"btn btn-primary\">\n                <i class=\"fa fa-envelope\"></i></button></li>\n        </ul>\n    </div>\n    <div class=\"card-body p-1\">\n        <h6 class=\"card-title text-center mb-1\">\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\n        </h6>\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\n    </div>\n\n\n</div>\n");
 
 /***/ }),
 
@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>\n    {{user.knownAs}}\n</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container mt-4\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-4\">\r\n            <h1>Your Profile</h1>\r\n        </div>\r\n        <div class=\"col-sm-8\">\r\n            <div *ngIf=\"editForm.dirty\" class=\"alert alert-info\">\r\n                <strong>Information:</strong> You have made changes.  Any unsaved changes will be lost!\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-4\">\r\n            <div class=\"card\">\r\n                <img class=\"card-img-top img-thumbnail\"\r\n                     src=\"{{ user?.photoUrl }}\"\r\n                     alt=\"{{ user?.knownAs }}\" />\r\n                <div class=\"card-body\">\r\n                    <div>\r\n                        <strong>Location</strong>\r\n                        <p>{{ user?.city }}, {{ user?.country }}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Age</strong>\r\n                        <p>{{ user?.age }}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Last Active</strong>\r\n                        <p>{{ user?.lastActive }}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Member since</strong>\r\n                        <p>{{ user?.created }}</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                    <button [disabled]=\"!editForm.dirty\" form=\"editForm\" class=\"btn btn-success btn-block\">Save changes</button>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-sm-8\">\r\n            <div class=\"tab-panel\">\r\n                <tabset class=\"member-tabset\">\r\n                    <tab heading=\"Edit Profile\">\r\n                        <form #editForm=\"ngForm\" id=\"editForm\" (ngSubmit)=\"updateUser()\">\r\n                            <h4>Description</h4>\r\n                            <textarea name=\"introduction\"\r\n                                      rows=\"6\"\r\n                                      class=\"form-control\"\r\n                                      [(ngModel)]=\"user.introduction\"></textarea>\r\n                            <h4>Looking for</h4>\r\n                            <textarea name=\"lookingFor\"\r\n                                      rows=\"6\"\r\n                                      class=\"form-control\"\r\n                                      [(ngModel)]=\"user.lookingFor\"></textarea>\r\n                            <h4>Interests</h4>\r\n                            <textarea name=\"interests\"\r\n                                      rows=\"6\"\r\n                                      class=\"form-control\"\r\n                                      [(ngModel)]=\"user.interests\"></textarea>\r\n                            <h4>Location details:</h4>\r\n                            <div class=\"form-inline\">\r\n                                <label for=\"city\">City</label>\r\n                                <input class=\"form-control\"\r\n                                       type=\"text\"\r\n                                       name=\"city\"\r\n                                       [(ngModel)]=\"user.city\" />\r\n                                <label for=\"city\">Country</label>\r\n                                <input class=\"form-control\"\r\n                                       type=\"text\"\r\n                                       name=\"country\"\r\n                                       [(ngModel)]=\"user.country\" />\r\n                            </div>\r\n                        </form>\r\n                    </tab>\r\n                    <tab heading=\"Edit Photos\">\r\n                        <p>Photo edit will go here</p>\r\n                    </tab>\r\n                </tabset>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -786,18 +786,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
 /* harmony import */ var _services_error_interceptor__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./_services/error.interceptor */ "./src/app/_services/error.interceptor.ts");
 /* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "./node_modules/ngx-bootstrap/dropdown/fesm2015/ngx-bootstrap-dropdown.js");
-/* harmony import */ var ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ngx-bootstrap/tabs */ "./node_modules/ngx-bootstrap/tabs/fesm2015/ngx-bootstrap-tabs.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-/* harmony import */ var _lists_lists_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./lists/lists.component */ "./src/app/lists/lists.component.ts");
-/* harmony import */ var _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./members/member-list/member-list.component */ "./src/app/members/member-list/member-list.component.ts");
-/* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./routes */ "./src/app/routes.ts");
-/* harmony import */ var _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./members/member-card/member-card.component */ "./src/app/members/member-card/member-card.component.ts");
-/* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
-/* harmony import */ var _resolvers_member_detail_resolvers__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./_resolvers/member-detail.resolvers */ "./src/app/_resolvers/member-detail.resolvers.ts");
-/* harmony import */ var _resolvers_member_list_resolvers__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./_resolvers/member-list.resolvers */ "./src/app/_resolvers/member-list.resolvers.ts");
-/* harmony import */ var _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./members/member-edit/member-edit.component */ "./src/app/members/member-edit/member-edit.component.ts");
-/* harmony import */ var _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./_resolvers/member-edit.resolver */ "./src/app/_resolvers/member-edit.resolver.ts");
+/* harmony import */ var angular_font_awesome__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! angular-font-awesome */ "./node_modules/angular-font-awesome/dist/angular-font-awesome.js");
+/* harmony import */ var ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ngx-bootstrap/tabs */ "./node_modules/ngx-bootstrap/tabs/fesm2015/ngx-bootstrap-tabs.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+/* harmony import */ var _lists_lists_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./lists/lists.component */ "./src/app/lists/lists.component.ts");
+/* harmony import */ var _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./members/member-list/member-list.component */ "./src/app/members/member-list/member-list.component.ts");
+/* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./routes */ "./src/app/routes.ts");
+/* harmony import */ var _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./members/member-card/member-card.component */ "./src/app/members/member-card/member-card.component.ts");
+/* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
+/* harmony import */ var _resolvers_member_detail_resolvers__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./_resolvers/member-detail.resolvers */ "./src/app/_resolvers/member-detail.resolvers.ts");
+/* harmony import */ var _resolvers_member_list_resolvers__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./_resolvers/member-list.resolvers */ "./src/app/_resolvers/member-list.resolvers.ts");
+/* harmony import */ var _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./members/member-edit/member-edit.component */ "./src/app/members/member-edit/member-edit.component.ts");
+/* harmony import */ var _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./_resolvers/member-edit.resolver */ "./src/app/_resolvers/member-edit.resolver.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -807,6 +808,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -859,21 +861,22 @@ AppModule = __decorate([
             _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_11__["FetchDataComponent"],
             _nav_nav_component__WEBPACK_IMPORTED_MODULE_12__["NavComponent"],
             _register_register_component__WEBPACK_IMPORTED_MODULE_13__["RegisterComponent"],
-            _lists_lists_component__WEBPACK_IMPORTED_MODULE_18__["ListsComponent"],
-            _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_19__["MemberListComponent"],
-            _messages_messages_component__WEBPACK_IMPORTED_MODULE_20__["MessagesComponent"],
-            _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_22__["MemberCardComponent"],
-            _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_23__["MemberDetailComponent"],
-            _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_26__["MemberEditComponent"]
+            _lists_lists_component__WEBPACK_IMPORTED_MODULE_19__["ListsComponent"],
+            _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_20__["MemberListComponent"],
+            _messages_messages_component__WEBPACK_IMPORTED_MODULE_21__["MessagesComponent"],
+            _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_23__["MemberCardComponent"],
+            _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_24__["MemberDetailComponent"],
+            _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_27__["MemberEditComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+            angular_font_awesome__WEBPACK_IMPORTED_MODULE_16__["AngularFontAwesomeModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
-            ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_16__["TabsModule"].forRoot(),
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_18__["BrowserAnimationsModule"],
+            ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_17__["TabsModule"].forRoot(),
             ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_15__["BsDropdownModule"].forRoot(),
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_21__["appRoutes"]),
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_22__["appRoutes"]),
             ngx_gallery__WEBPACK_IMPORTED_MODULE_6__["NgxGalleryModule"],
             _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_5__["JwtModule"].forRoot({
                 config: {
@@ -886,9 +889,9 @@ AppModule = __decorate([
         providers: [
             // AuthService,
             _services_error_interceptor__WEBPACK_IMPORTED_MODULE_14__["ErrorInterceptorProvider"],
-            _resolvers_member_detail_resolvers__WEBPACK_IMPORTED_MODULE_24__["MemberDetailResolver"],
-            _resolvers_member_list_resolvers__WEBPACK_IMPORTED_MODULE_25__["MemberListResolver"],
-            _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_27__["MemberEditResolver"],
+            _resolvers_member_detail_resolvers__WEBPACK_IMPORTED_MODULE_25__["MemberDetailResolver"],
+            _resolvers_member_list_resolvers__WEBPACK_IMPORTED_MODULE_26__["MemberListResolver"],
+            _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_28__["MemberEditResolver"],
             { provide: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["HAMMER_GESTURE_CONFIG"], useClass: CustomHammerConfig }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
@@ -1283,7 +1286,7 @@ MemberDetailComponent = __decorate([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvbWVtYmVyLWVkaXQvbWVtYmVyLWVkaXQuY29tcG9uZW50LmNzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n.img-thumbnail {\r\n    margin: 25px;\r\n    width: 85%;\r\n    height: 85%;\r\n}\r\n\r\n.card-body {\r\n    padding: 0 25px;\r\n}\r\n\r\n.card-footer {\r\n    padding: 10px 15px;\r\n    background-color: #fff;\r\n    border-top: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy9tZW1iZXItZWRpdC9tZW1iZXItZWRpdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQTtJQUNJLFlBQVk7SUFDWixVQUFVO0lBQ1YsV0FBVztBQUNmOztBQUVBO0lBQ0ksZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixzQkFBc0I7SUFDdEIsZ0JBQWdCO0FBQ3BCIiwiZmlsZSI6InNyYy9hcHAvbWVtYmVycy9tZW1iZXItZWRpdC9tZW1iZXItZWRpdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbi5pbWctdGh1bWJuYWlsIHtcclxuICAgIG1hcmdpbjogMjVweDtcclxuICAgIHdpZHRoOiA4NSU7XHJcbiAgICBoZWlnaHQ6IDg1JTtcclxufVxyXG5cclxuLmNhcmQtYm9keSB7XHJcbiAgICBwYWRkaW5nOiAwIDI1cHg7XHJcbn1cclxuXHJcbi5jYXJkLWZvb3RlciB7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDE1cHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmO1xyXG4gICAgYm9yZGVyLXRvcDogbm9uZTtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -1299,6 +1302,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MemberEditComponent", function() { return MemberEditComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1313,26 +1318,39 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 };
 
 
+
+
 let MemberEditComponent = class MemberEditComponent {
-    constructor(route) {
+    constructor(route, alertify) {
         this.route = route;
+        this.alertify = alertify;
     }
     ngOnInit() {
         this.route.data.subscribe(data => {
-            this.user = data['user'];
+            this.user = data[`user`];
         });
+    }
+    updateUser() {
+        console.log(this.user);
+        this.alertify.success('Profile updated successfully');
+        this.editForm.reset(this.user);
     }
 };
 MemberEditComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"] },
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"] }
 ];
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('editForm', { static: true }),
+    __metadata("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"])
+], MemberEditComponent.prototype, "editForm", void 0);
 MemberEditComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-member-edit',
         template: __importDefault(__webpack_require__(/*! raw-loader!./member-edit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-edit/member-edit.component.html")).default,
         styles: [__importDefault(__webpack_require__(/*! ./member-edit.component.css */ "./src/app/members/member-edit/member-edit.component.css")).default]
     }),
-    __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]])
+    __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"], _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"]])
 ], MemberEditComponent);
 
 
