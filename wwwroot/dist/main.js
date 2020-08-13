@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container mt-4\">\n    <div class=\"row\">\n        <div class=\"col-sm-4\">\n            <div class=\"card\">\n                <img class=\"card-img-top img-thumbnail\" src=\"{{user?.photoUrl}}\" alt=\"{{user?.knownAs}}\">\n                <div class=\"card-body\">\n                    <div>\n                        <strong>Location</strong>\n                        <p>{{user?.city}}, {{user?.country}}</p>\n                    </div>\n                    <div>\n                        <strong>Age</strong>\n                        <p>{{user?.age}}</p>\n                    </div>\n                    <div>\n                        <strong>Last Active</strong>\n                        <p>{{user?.lastActive}}</p>\n                    </div>\n                    <div>\n                        <strong>Member since</strong>\n                        <p>{{user?.created}}</p>\n                    </div>\n                </div>\n                <div class=\"card-footer\">\n                    <div class=\"btn-group d-flex\">\n                        <button class=\"btn btn-primary  w-100\">Like</button>\n                        <button class=\"btn btn-success  w-100\">Message</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-sm-8\">\n\n    </div>\n\n</div>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container mt-4\">\n    <!--<div class=\"row\">\n        <h1>{{user.knownAs}}'s Profile</h1>\n    </div>-->\n    <div class=\"row\">\n        <div class=\"col-sm-4\">\n            <div class=\"card\">\n                <img class=\"card-img-top img-thumbnail\" src=\"{{user.photoUrl}}\" alt=\"{{user.knownAs}}\">\n                <div class=\"card-body\">\n                    <div>\n                        <strong>Location</strong>\n                        <p>{{user.city}}, {{user.country}}</p>\n                    </div>\n                    <div>\n                        <strong>Age</strong>\n                        <p>{{user.age}}</p>\n                    </div>\n                    <div>\n                        <strong>Last Active</strong>\n                        <p>{{user.lastActive}}</p>\n                    </div>\n                    <div>\n                        <strong>Member since</strong>\n                        <p>{{user.created}}</p>\n                    </div>\n                </div>\n                <div class=\"card-footer\">\n                    <div class=\"btn-group d-flex\">\n                        <button class=\"btn btn-primary  w-100\">Like</button>\n                        <button class=\"btn btn-success  w-100\">Message</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-sm-8\">\n            <div class=\"tab-panel\">\n                <tabset  class=\"member-tabset\">\n                    <tab heading=\"About {{user.knownAs}}\">\n                        <h4>Description</h4>\n                        <p>{{user.introduction}}</p>\n                        <h4>Looking For</h4>\n                        <p>{{user.lookingFor}}</p>\n                    </tab>\n                    <tab heading=\"Interests\">\n                        <h4>Interests</h4>\n                        <p>{{user.interests}}</p>\n                    </tab>\n                    <tab heading=\"Photos\">\n                        <p>Photos will go here</p>\n                    </tab>\n                    <tab heading=\"Messages\">\n                        Messages will go here\n                    </tab>\n                </tabset>\n\n            </div>\n\n        </div>\n    </div>\n</div>\n\n\n");
 
 /***/ }),
 
@@ -235,6 +235,134 @@ AuthGuard = __decorate([
     }),
     __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"]])
 ], AuthGuard);
+
+
+
+/***/ }),
+
+/***/ "./src/app/_resolvers/member-detail.resolvers.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/_resolvers/member-detail.resolvers.ts ***!
+  \*******************************************************/
+/*! exports provided: MemberDetailResolver */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MemberDetailResolver", function() { return MemberDetailResolver; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_services/user.service */ "./src/app/_services/user.service.ts");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+
+
+let MemberDetailResolver = class MemberDetailResolver {
+    constructor(userService, router, alertify) {
+        this.userService = userService;
+        this.router = router;
+        this.alertify = alertify;
+    }
+    resolve(route) {
+        return this.userService.getUser(route.params[`id`]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => {
+            this.alertify.error('Problem retrieving data');
+            this.router.navigate(['/members']);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(null);
+        }));
+    }
+};
+MemberDetailResolver.ctorParameters = () => [
+    { type: _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] },
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"] }
+];
+MemberDetailResolver = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+    __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+        _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"]])
+], MemberDetailResolver);
+
+
+
+/***/ }),
+
+/***/ "./src/app/_resolvers/member-list.resolvers.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/_resolvers/member-list.resolvers.ts ***!
+  \*****************************************************/
+/*! exports provided: MemberListResolver */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MemberListResolver", function() { return MemberListResolver; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_services/user.service */ "./src/app/_services/user.service.ts");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+
+
+let MemberListResolver = class MemberListResolver {
+    constructor(userService, router, alertify) {
+        this.userService = userService;
+        this.router = router;
+        this.alertify = alertify;
+    }
+    resolve(route) {
+        return this.userService.getUsers().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => {
+            this.alertify.error('Problem retrieving data');
+            this.router.navigate(['/home']);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(null);
+        }));
+    }
+};
+MemberListResolver.ctorParameters = () => [
+    { type: _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] },
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"] }
+];
+MemberListResolver = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+    __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+        _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"]])
+], MemberListResolver);
 
 
 
@@ -573,13 +701,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
 /* harmony import */ var _services_error_interceptor__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./_services/error.interceptor */ "./src/app/_services/error.interceptor.ts");
 /* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "./node_modules/ngx-bootstrap/dropdown/fesm2015/ngx-bootstrap-dropdown.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-/* harmony import */ var _lists_lists_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./lists/lists.component */ "./src/app/lists/lists.component.ts");
-/* harmony import */ var _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./members/member-list/member-list.component */ "./src/app/members/member-list/member-list.component.ts");
-/* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./routes */ "./src/app/routes.ts");
-/* harmony import */ var _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./members/member-card/member-card.component */ "./src/app/members/member-card/member-card.component.ts");
-/* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
+/* harmony import */ var ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-bootstrap/tabs */ "./node_modules/ngx-bootstrap/tabs/fesm2015/ngx-bootstrap-tabs.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+/* harmony import */ var _lists_lists_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./lists/lists.component */ "./src/app/lists/lists.component.ts");
+/* harmony import */ var _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./members/member-list/member-list.component */ "./src/app/members/member-list/member-list.component.ts");
+/* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./routes */ "./src/app/routes.ts");
+/* harmony import */ var _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./members/member-card/member-card.component */ "./src/app/members/member-card/member-card.component.ts");
+/* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
+/* harmony import */ var _resolvers_member_detail_resolvers__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./_resolvers/member-detail.resolvers */ "./src/app/_resolvers/member-detail.resolvers.ts");
+/* harmony import */ var _resolvers_member_list_resolvers__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./_resolvers/member-list.resolvers */ "./src/app/_resolvers/member-list.resolvers.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -589,6 +720,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
+
 
 
 
@@ -626,19 +760,20 @@ AppModule = __decorate([
             _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_10__["FetchDataComponent"],
             _nav_nav_component__WEBPACK_IMPORTED_MODULE_11__["NavComponent"],
             _register_register_component__WEBPACK_IMPORTED_MODULE_12__["RegisterComponent"],
-            _lists_lists_component__WEBPACK_IMPORTED_MODULE_16__["ListsComponent"],
-            _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_17__["MemberListComponent"],
-            _messages_messages_component__WEBPACK_IMPORTED_MODULE_18__["MessagesComponent"],
-            _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_20__["MemberCardComponent"],
-            _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_21__["MemberDetailComponent"]
+            _lists_lists_component__WEBPACK_IMPORTED_MODULE_17__["ListsComponent"],
+            _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_18__["MemberListComponent"],
+            _messages_messages_component__WEBPACK_IMPORTED_MODULE_19__["MessagesComponent"],
+            _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_21__["MemberCardComponent"],
+            _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_22__["MemberDetailComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__["BrowserAnimationsModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_16__["BrowserAnimationsModule"],
+            ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_15__["TabsModule"].forRoot(),
             ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_14__["BsDropdownModule"].forRoot(),
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_19__["appRoutes"]),
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_20__["appRoutes"]),
             _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_5__["JwtModule"].forRoot({
                 config: {
                     tokenGetter,
@@ -649,7 +784,9 @@ AppModule = __decorate([
         ],
         providers: [
             // AuthService,
-            _services_error_interceptor__WEBPACK_IMPORTED_MODULE_13__["ErrorInterceptorProvider"]
+            _services_error_interceptor__WEBPACK_IMPORTED_MODULE_13__["ErrorInterceptorProvider"],
+            _resolvers_member_detail_resolvers__WEBPACK_IMPORTED_MODULE_23__["MemberDetailResolver"],
+            _resolvers_member_list_resolvers__WEBPACK_IMPORTED_MODULE_24__["MemberListResolver"]
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
     })
@@ -985,13 +1122,8 @@ let MemberDetailComponent = class MemberDetailComponent {
         this.route = route;
     }
     ngOnInit() {
-        this.loadUser();
-    }
-    loadUser() {
-        this.userService.getUser(+this.route.snapshot.params['id']).subscribe((user) => {
-            this.user = user;
-        }, error => {
-            this.alertify.error(error);
+        this.route.data.subscribe(data => {
+            this.user = data['user'];
         });
     }
 };
@@ -1039,6 +1171,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../_services/user.service */ "./src/app/_services/user.service.ts");
 /* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1054,13 +1187,17 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 let MemberListComponent = class MemberListComponent {
-    constructor(userService, alertify) {
+    constructor(userService, alertify, route) {
         this.userService = userService;
         this.alertify = alertify;
+        this.route = route;
     }
     ngOnInit() {
-        this.loadUsers();
+        this.route.data.subscribe(data => {
+            this.users = data['users'];
+        });
     }
     loadUsers() {
         this.userService.getUsers().subscribe((users) => {
@@ -1072,7 +1209,8 @@ let MemberListComponent = class MemberListComponent {
 };
 MemberListComponent.ctorParameters = () => [
     { type: _services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"] },
-    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"] }
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }
 ];
 MemberListComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1080,7 +1218,7 @@ MemberListComponent = __decorate([
         template: __importDefault(__webpack_require__(/*! raw-loader!./member-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-list/member-list.component.html")).default,
         styles: [__importDefault(__webpack_require__(/*! ./member-list.component.css */ "./src/app/members/member-list/member-list.component.css")).default]
     }),
-    __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"]])
+    __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
 ], MemberListComponent);
 
 
@@ -1386,9 +1524,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lists_lists_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lists/lists.component */ "./src/app/lists/lists.component.ts");
 /* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_guards/auth.guard */ "./src/app/_guards/auth.guard.ts");
 /* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
+/* harmony import */ var _resolvers_member_detail_resolvers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./_resolvers/member-detail.resolvers */ "./src/app/_resolvers/member-detail.resolvers.ts");
+/* harmony import */ var _resolvers_member_list_resolvers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./_resolvers/member-list.resolvers */ "./src/app/_resolvers/member-list.resolvers.ts");
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
 
 
 
@@ -1402,8 +1544,13 @@ const appRoutes = [
         runGuardsAndResolvers: 'always',
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]],
         children: [
-            { path: 'members', component: _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_1__["MemberListComponent"] },
-            { path: 'members/:id', component: _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_5__["MemberDetailComponent"] },
+            {
+                path: 'members', component: _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_1__["MemberListComponent"],
+                resolve: { users: _resolvers_member_list_resolvers__WEBPACK_IMPORTED_MODULE_7__["MemberListResolver"] }
+            },
+            { path: 'members/:id', component: _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_5__["MemberDetailComponent"],
+                resolve: { user: _resolvers_member_detail_resolvers__WEBPACK_IMPORTED_MODULE_6__["MemberDetailResolver"] }
+            },
             { path: 'messages', component: _messages_messages_component__WEBPACK_IMPORTED_MODULE_2__["MessagesComponent"] },
             { path: 'lists', component: _lists_lists_component__WEBPACK_IMPORTED_MODULE_3__["ListsComponent"] }
         ]

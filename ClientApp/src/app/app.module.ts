@@ -15,6 +15,7 @@ import { AuthService } from './_services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListsComponent } from './lists/lists.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
@@ -22,6 +23,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberDetailResolver } from './_resolvers/member-detail.resolvers';
+import { MemberListResolver } from './_resolvers/member-list.resolvers';
 
 
 
@@ -49,6 +52,7 @@ export function tokenGetter() {
     HttpClientModule,
       FormsModule,
       BrowserAnimationsModule,
+      TabsModule.forRoot(),
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
@@ -61,7 +65,9 @@ export function tokenGetter() {
   ],
     providers: [
        // AuthService,
-        ErrorInterceptorProvider
+        ErrorInterceptorProvider,
+        MemberDetailResolver,
+        MemberListResolver
     ],
   bootstrap: [AppComponent]
 })
