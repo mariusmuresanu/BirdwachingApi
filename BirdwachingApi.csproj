@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\package.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AlertifyJS" Version="1.13.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="bootstrap" Version="4.5.2" />
@@ -40,6 +44,27 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\_models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ClientApp\src\assets\bootswatch\.github\stale.yml" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\CHANGELOG.md" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver\base.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver\client.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver\draft75.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver\draft76.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver\headers.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver\hybi.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver\hybi\frame.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver\hybi\message.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver\proxy.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver\server.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver\stream_reader.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\http_parser.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\streams.js" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\LICENSE.md" />
+    <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\README.md" />
   </ItemGroup>
 
 
