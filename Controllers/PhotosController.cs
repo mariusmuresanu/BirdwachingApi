@@ -26,7 +26,6 @@ namespace BirdwachingApi.Controllers
         private readonly IMapper _mapper;
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
         private Cloudinary _cloudinary;
-
         public PhotosController(IDatingRepository repo, IMapper mapper,
             IOptions<CloudinarySettings> cloudinaryConfig)
         {
@@ -38,7 +37,7 @@ namespace BirdwachingApi.Controllers
                 _cloudinaryConfig.Value.CloudName,
                 _cloudinaryConfig.Value.ApiKey,
                 _cloudinaryConfig.Value.ApiSecret
-                );
+            );
 
             _cloudinary = new Cloudinary(acc);
         }
@@ -54,14 +53,12 @@ namespace BirdwachingApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPhotoForUser(int userId,
-            [FromForm]PhotoForCreationDto photoForCreationDto)
+        public async Task<IActionResult> AddPhotoForUser(int userId, [FromForm] PhotoForCreationDto photoForCreationDto)
         {
             if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
 
             var userFromRepo = await _repo.GetUser(userId);
-
             var file = photoForCreationDto.File;
 
             var uploadResult = new ImageUploadResult();
@@ -80,6 +77,7 @@ namespace BirdwachingApi.Controllers
                 }
             }
 
+
             photoForCreationDto.Url = uploadResult.Uri.ToString();
             photoForCreationDto.PublicId = uploadResult.PublicId;
 
@@ -95,7 +93,36 @@ namespace BirdwachingApi.Controllers
                 var photoToReturn = _mapper.Map<PhotoForReturnDto>(photo);
                 return CreatedAtRoute("GetPhoto", new { userId = userId, id = photo.Id }, photoToReturn);
             };
+
+
             return BadRequest("Could not add the photo");
         }
+        [HttpPost("{id}/setMain")]
+        public async Task<IActionResult> SetMain(int userId, int id)
+        {
+            if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
+            var user = await _repo.GetUser(userId);
+
+            if (!user.Photos.Any(p => p.Id == id))
+                return Unauthorized();
+
+            var photoFromRepo = await _repo.GetPhoto(id);
+
+            if (photoFromRepo.IsMain)
+                return BadRequest("This is already the main photo");
+
+            var currentMainPhoto = await _repo.GetMainPhotoForUser(userId);
+            currentMainPhoto.IsMain = false;
+
+            photoFromRepo.IsMain = true;
+
+            if (await _repo.SaveAll())
+                return NoContent();
+
+            return BadRequest("Could not set photo to main");
+        }
+
     }
 }

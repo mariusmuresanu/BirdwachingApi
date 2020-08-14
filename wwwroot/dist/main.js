@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container mt-4\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-4\">\r\n            <h1>Your Profile</h1>\r\n        </div>\r\n        <div class=\"col-sm-8\">\r\n            <div *ngIf=\"editForm.dirty\" class=\"alert alert-info\">\r\n                <strong>Information:</strong> You have made changes.  Any unsaved changes will be lost!\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-4\">\r\n            <div class=\"card\">\r\n                <img class=\"card-img-top img-thumbnail\"\r\n                     src=\"{{ user?.photoUrl }}\"\r\n                     alt=\"{{ user?.knownAs }}\" />\r\n                <div class=\"card-body\">\r\n                    <div>\r\n                        <strong>Location</strong>\r\n                        <p>{{ user?.city }}, {{ user?.country }}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Age</strong>\r\n                        <p>{{ user?.age }}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Last Active</strong>\r\n                        <p>{{ user?.lastActive }}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Member since</strong>\r\n                        <p>{{ user?.created }}</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                    <button [disabled]=\"!editForm.dirty\" form=\"editForm\" class=\"btn btn-success btn-block\">Save changes</button>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-sm-8\">\r\n            <div class=\"tab-panel\">\r\n                <tabset class=\"member-tabset\">\r\n                    <tab heading=\"Edit Profile\">\r\n                        <form #editForm=\"ngForm\" id=\"editForm\" (ngSubmit)=\"updateUser()\">\r\n                            <h4>Description</h4>\r\n                            <textarea name=\"introduction\"\r\n                                      rows=\"6\"\r\n                                      class=\"form-control\"\r\n                                      [(ngModel)]=\"user.introduction\"></textarea>\r\n                            <h4>Looking for</h4>\r\n                            <textarea name=\"lookingFor\"\r\n                                      rows=\"6\"\r\n                                      class=\"form-control\"\r\n                                      [(ngModel)]=\"user.lookingFor\"></textarea>\r\n                            <h4>Interests</h4>\r\n                            <textarea name=\"interests\"\r\n                                      rows=\"6\"\r\n                                      class=\"form-control\"\r\n                                      [(ngModel)]=\"user.interests\"></textarea>\r\n                            <h4>Location details:</h4>\r\n                            <div class=\"form-inline\">\r\n                                <label for=\"city\">City</label>\r\n                                <input class=\"form-control\"\r\n                                       type=\"text\"\r\n                                       name=\"city\"\r\n                                       [(ngModel)]=\"user.city\" />\r\n                                <label for=\"city\">Country</label>\r\n                                <input class=\"form-control\"\r\n                                       type=\"text\"\r\n                                       name=\"country\"\r\n                                       [(ngModel)]=\"user.country\" />\r\n                            </div>\r\n                        </form>\r\n                    </tab>\r\n                    <tab heading=\"Edit Photos\">\r\n                        <app-photo-editor [photos]=\"user.photos\"></app-photo-editor>\r\n                    </tab>\r\n                </tabset>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container mt-4\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-4\">\r\n            <h1>Your Profile</h1>\r\n        </div>\r\n        <div class=\"col-sm-8\">\r\n            <div *ngIf=\"editForm.dirty\" class=\"alert alert-info\">\r\n                <strong>Information:</strong> You have made changes. Any unsaved changes\r\n                will be lost!\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-4\">\r\n            <div class=\"card\">\r\n                <img class=\"card-img-top img-thumbnail\"\r\n                     src=\"{{ photoUrl }}\"\r\n                     alt=\"{{ user.knownAs }}\" />\r\n                <div class=\"card-body\">\r\n                    <div>\r\n                        <strong>Location</strong>\r\n                        <p>{{ user.city }}, {{ user.country }}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Age</strong>\r\n                        <p>{{ user.age }}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Last Active</strong>\r\n                        <p>{{ user.lastActive }}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Member since</strong>\r\n                        <p>{{ user.created }}</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                    <button [disabled]=\"!editForm.dirty\"\r\n                            form=\"editForm\"\r\n                            class=\"btn btn-success btn-block\">\r\n                        Save changes\r\n                    </button>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-sm-8\">\r\n            <div class=\"tab-panel\">\r\n                <tabset class=\"member-tabset\">\r\n                    <tab heading=\"Edit Profile\">\r\n                        <form #editForm=\"ngForm\" id=\"editForm\" (ngSubmit)=\"updateUser()\">\r\n                            <h4>Description</h4>\r\n                            <textarea name=\"introduction\"\r\n                                      rows=\"6\"\r\n                                      class=\"form-control\"\r\n                                      [(ngModel)]=\"user.introduction\"></textarea>\r\n                            <h4>Looking for</h4>\r\n                            <textarea name=\"lookingFor\"\r\n                                      rows=\"6\"\r\n                                      class=\"form-control\"\r\n                                      [(ngModel)]=\"user.lookingFor\"></textarea>\r\n                            <h4>Interests</h4>\r\n                            <textarea name=\"interests\"\r\n                                      rows=\"6\"\r\n                                      class=\"form-control\"\r\n                                      [(ngModel)]=\"user.interests\"></textarea>\r\n                            <h4>Location details:</h4>\r\n                            <div class=\"form-inline\">\r\n                                <label for=\"city\">City</label>\r\n                                <input class=\"form-control\"\r\n                                       type=\"text\"\r\n                                       name=\"city\"\r\n                                       [(ngModel)]=\"user.city\" />\r\n                                <label for=\"city\">Country</label>\r\n                                <input class=\"form-control\"\r\n                                       type=\"text\"\r\n                                       name=\"country\"\r\n                                       [(ngModel)]=\"user.country\" />\r\n                            </div>\r\n                        </form>\r\n                    </tab>\r\n                    <tab heading=\"Edit Photos\">\r\n                        <app-photo-editor [photos]=\"user.photos\"\r\n                                          (getMemberPhotoChange)=\"updateMainPhoto($event)\"></app-photo-editor>\r\n                    </tab>\r\n                </tabset>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\r\n    <div class=\"col-sm-2\" *ngFor=\"let photo of photos\">\r\n        <img src=\"{{photo.url}}\" class=\"img-thumbnail p-1\" alt=\"\" />\r\n        <div class=\"text-center\">\r\n            <button type=\"button\" class=\"btn btn-sm\">Main</button>\r\n            <button type=\"button\" class=\"btn btn-sm btn-danger\"><i class=\"fa fa-trash-o\"></i></button>\r\n\r\n        </div>\r\n    </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\r\n    <div class=\"col-sm-2\" *ngFor=\"let photo of photos\">\r\n        <img src=\"{{ photo.url }}\" class=\"img-thumbnail p-1\" alt=\"\" />\r\n        <div class=\"text-center\">\r\n            <button type=\"button\"\r\n                    [ngClass]=\"photo.isMain ? 'btn-success active' : 'btn-secondary'\"\r\n                    (click)=\"setMainPhoto(photo)\"\r\n                    [disabled]=\"photo.isMain\"\r\n                    class=\"btn btn-sm mr-1\">\r\n                Main\r\n            </button>\r\n            <button type=\"button\"\r\n                    class=\"btn btn-danger btn-sm\"\r\n                    [disabled]=\"photo.isMain\"\r\n                    (click)=\"deletePhoto(photo.id)\">\r\n                <i class=\"fa fa-trash-o\"></i>\r\n            </button>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n <div class=\"row mt-3\">\r\n \r\n        <div class=\"col-md-3\">\r\n \r\n            <h3>Add Photos</h3>\r\n \r\n            <div ng2FileDrop\r\n                 [ngClass]=\"{'nv-file-over': hasBaseDropZoneOver}\"\r\n                 (fileOver)=\"fileOverBase($event)\"\r\n                 [uploader]=\"uploader\"\r\n                 class=\"card bg-faded p-3 text-center mb-3 my-drop-zone\">\r\n                <i class=\"fa fa-download fa-3x\"></i>\r\n                Drop photos Here\r\n            </div>\r\n \r\n\r\n \r\n            Multiple\r\n            <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" multiple  /><br/>\r\n \r\n            Single\r\n            <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" />\r\n        </div>\r\n \r\n        <div class=\"col-md-9\" style=\"margin-bottom: 40px\" *ngIf=\"uploader?.queue?.length\">\r\n\r\n            <h3>Upload queue</h3>\r\n            <p>Queue length: {{ uploader?.queue?.length }}</p>\r\n\r\n            <table class=\"table\">\r\n                <thead>\r\n                    <tr>\r\n                        <th width=\"50%\">Name</th>\r\n                        <th>Size</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let item of uploader.queue\">\r\n                        <td><strong>{{ item?.file?.name }}</strong></td>\r\n                        <td *ngIf=\"uploader.options.isHTML5\" nowrap>\r\n                        {{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n\r\n            <div>\r\n                <div>\r\n                    Queue progress:\r\n                    <div class=\"progress mb-4\">\r\n                        <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': uploader.progress + '%' }\"></div>\r\n                    </div>\r\n                </div>\r\n                <button type=\"button\" class=\"btn btn-success btn-s\"\r\n                        (click)=\"uploader.uploadAll()\" [disabled]=\"!uploader.getNotUploadedItems().length\">\r\n                    <span class=\"fa fa-upload \"></span> Upload \r\n                </button>\r\n                <button type=\"button\" class=\"btn btn-warning btn-s\"\r\n                        (click)=\"uploader.cancelAll()\" [disabled]=\"!uploader.isUploading\">\r\n                    <span class=\"fa fa-ban\"></span> Cancel \r\n                </button>\r\n                <button type=\"button\" class=\"btn btn-danger btn-s\"\r\n                        (click)=\"uploader.clearQueue()\" [disabled]=\"!uploader.queue.length\">\r\n                    <span class=\"fa fa-trash\"></span> Remove \r\n                </button>\r\n            </div>\r\n\r\n        </div>\r\n \r\n    </div>\r\n");
 
 /***/ }),
 
@@ -165,7 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-primary\">\r\n    <div class=\"container\">\r\n        <a class=\"navbar-brand\" [routerLink]=\"['/home']\">BirdwachingApp</a>\r\n\r\n        <ul *ngIf=\"loggedIn()\" class=\"navbar-nav mr-auto\">\r\n            <li class=\"nav-item\" routerLinkActive=\"active\">\r\n                <a class=\"nav-link\" [routerLink]=\"['/members']\">Matches</a>\r\n            </li>\r\n            <li class=\"nav-item\" routerLinkActive=\"active\">\r\n                <a class=\"nav-link\" [routerLink]=\"['/lists']\">Lists</a>\r\n            </li>\r\n            <li class=\"nav-item\" routerLinkActive=\"active\">\r\n                <a class=\"nav-link\" [routerLink]=\"['/messages']\">Messages</a>\r\n            </li>\r\n        </ul>\r\n\r\n        <div *ngIf=\"loggedIn()\" class=\"dropdown\" dropdown>\r\n            <a class=\"dropdown-toggle text-light\" dropdownToggle>\r\n                Welcome {{ authService.decodedToken?.unique_name | titlecase }}\r\n            </a>\r\n\r\n            <div class=\"dropdown-menu mt-3\" *dropdownMenu>\r\n                <a class=\"dropdown-item\" [routerLink]=\"['/member/edit']\">\r\n                <i class=\"fa fa-user\"></i> Edit Profile</a>\r\n                <div class=\"dropdown-item\"></div>\r\n                <a class=\"dropdown-item\" (click)=\"logout()\">\r\n                <i class=\"fa fa-sign-out\"></i> Logout</a>\r\n            </div>\r\n        </div>\r\n\r\n        <form *ngIf=\"!loggedIn()\"\r\n              #loginForm=\"ngForm\"\r\n              class=\"form-inline my-2 my-lg-0\"\r\n              (ngSubmit)=\"login()\">\r\n            <input class=\"form-control mr-sm-2\"\r\n                   type=\"text\"\r\n                   placeholder=\"Username\"\r\n                   name=\"username\"\r\n                   required\r\n                   [(ngModel)]=\"model.username\" />\r\n            <input class=\"form-control mr-sm-2\"\r\n                   type=\"password\"\r\n                   placeholder=\"Password\"\r\n                   name=\"password\"\r\n                   required\r\n                   [(ngModel)]=\"model.password\" />\r\n            <button [disabled]=\"!loginForm.valid\"\r\n                    class=\"btn btn-primary my-2 my-sm-0\"\r\n                    type=\"submit\">\r\n                Login\r\n            </button>\r\n        </form>\r\n    </div>\r\n</nav>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-primary\">\r\n    <div class=\"container\">\r\n        <a class=\"navbar-brand\" [routerLink]=\"['/home']\">BirdwachingApp</a>\r\n\r\n        <ul *ngIf=\"loggedIn()\" class=\"navbar-nav mr-auto\">\r\n            <li class=\"nav-item\" routerLinkActive=\"active\">\r\n                <a class=\"nav-link\" [routerLink]=\"['/members']\">Matches</a>\r\n            </li>\r\n            <li class=\"nav-item\" routerLinkActive=\"active\">\r\n                <a class=\"nav-link\" [routerLink]=\"['/lists']\">Lists</a>\r\n            </li>\r\n            <li class=\"nav-item\" routerLinkActive=\"active\">\r\n                <a class=\"nav-link\" [routerLink]=\"['/messages']\">Messages</a>\r\n            </li>\r\n        </ul>\r\n\r\n        <div *ngIf=\"loggedIn()\" class=\"dropdown\" dropdown>\r\n            <span class=\"mr-1\">\r\n            <img src=\"{{photoUrl}}\" alt=\"\" />\r\n            </span>\r\n            <a class=\"dropdown-toggle text-light\" dropdownToggle>\r\n                Welcome {{ authService.decodedToken?.unique_name | titlecase }}\r\n            </a>\r\n\r\n            <div class=\"dropdown-menu mt-3\" *dropdownMenu>\r\n                <a class=\"dropdown-item\" [routerLink]=\"['/member/edit']\">\r\n                <i class=\"fa fa-user\"></i> Edit Profile</a>\r\n                <div class=\"dropdown-item\"></div>\r\n                <a class=\"dropdown-item\" (click)=\"logout()\">\r\n                <i class=\"fa fa-sign-out\"></i> Logout</a>\r\n            </div>\r\n        </div>\r\n\r\n        <form *ngIf=\"!loggedIn()\"\r\n              #loginForm=\"ngForm\"\r\n              class=\"form-inline my-2 my-lg-0\"\r\n              (ngSubmit)=\"login()\">\r\n            <input class=\"form-control mr-sm-2\"\r\n                   type=\"text\"\r\n                   placeholder=\"Username\"\r\n                   name=\"username\"\r\n                   required\r\n                   [(ngModel)]=\"model.username\" />\r\n            <input class=\"form-control mr-sm-2\"\r\n                   type=\"password\"\r\n                   placeholder=\"Password\"\r\n                   name=\"password\"\r\n                   required\r\n                   [(ngModel)]=\"model.password\" />\r\n            <button [disabled]=\"!loginForm.valid\"\r\n                    class=\"btn btn-primary my-2 my-sm-0\"\r\n                    type=\"submit\">\r\n                Login\r\n            </button>\r\n        </form>\r\n    </div>\r\n</nav>\r\n");
 
 /***/ }),
 
@@ -574,9 +574,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/fesm2015/auth0-angular-jwt.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/fesm2015/auth0-angular-jwt.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -594,19 +595,27 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 let AuthService = class AuthService {
     constructor(http) {
         this.http = http;
-        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiUrl + 'auth/';
-        this.jwtHelper = new _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_3__["JwtHelperService"]();
+        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].apiUrl + 'auth/';
+        this.jwtHelper = new _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_4__["JwtHelperService"]();
+        this.photoUrl = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]('../../assets/user.png');
+        this.currentPhotoUrl = this.photoUrl.asObservable();
+    }
+    changeMemberPhoto(photoUrl) {
+        this.photoUrl.next(photoUrl);
     }
     login(model) {
-        return this.http.post(this.baseUrl + 'login', model).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((response) => {
+        return this.http.post(this.baseUrl + 'login', model).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((response) => {
             const user = response;
             if (user) {
                 localStorage.setItem('token', user.token);
+                localStorage.setItem('user', JSON.stringify(user.user));
                 this.decodedToken = this.jwtHelper.decodeToken(user.token);
-                console.log(this.decodedToken);
+                this.currentUser = user.user;
+                this.changeMemberPhoto(this.currentUser.photoUrl);
             }
         }));
     }
@@ -740,6 +749,9 @@ let UserService = class UserService {
     updateUser(id, user) {
         return this.http.put(this.baseUrl + 'users/' + id, user);
     }
+    setMainPhoto(userId, id) {
+        return this.http.post(this.baseUrl + 'users/' + userId + '/photos/' + id + '/setMain', {});
+    }
 };
 UserService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -790,8 +802,13 @@ let AppComponent = class AppComponent {
     }
     ngOnInit() {
         const token = localStorage.getItem('token');
+        const user = JSON.parse(localStorage.getItem('user'));
         if (token) {
             this.authService.decodedToken = this.jwtHelper.decodeToken(token);
+        }
+        if (user) {
+            this.authService.currentUser = user;
+            this.authService.changeMemberPhoto(user.photoUrl);
         }
     }
 };
@@ -830,30 +847,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/fesm2015/auth0-angular-jwt.js");
 /* harmony import */ var ngx_gallery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-gallery */ "./node_modules/ngx-gallery/bundles/ngx-gallery.umd.js");
 /* harmony import */ var ngx_gallery__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(ngx_gallery__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _nav_menu_nav_menu_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./nav-menu/nav-menu.component */ "./src/app/nav-menu/nav-menu.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _counter_counter_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./counter/counter.component */ "./src/app/counter/counter.component.ts");
-/* harmony import */ var _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./fetch-data/fetch-data.component */ "./src/app/fetch-data/fetch-data.component.ts");
-/* harmony import */ var _nav_nav_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./nav/nav.component */ "./src/app/nav/nav.component.ts");
-/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
-/* harmony import */ var _services_error_interceptor__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./_services/error.interceptor */ "./src/app/_services/error.interceptor.ts");
-/* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "./node_modules/ngx-bootstrap/dropdown/fesm2015/ngx-bootstrap-dropdown.js");
-/* harmony import */ var angular_font_awesome__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! angular-font-awesome */ "./node_modules/angular-font-awesome/dist/angular-font-awesome.js");
-/* harmony import */ var ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ngx-bootstrap/tabs */ "./node_modules/ngx-bootstrap/tabs/fesm2015/ngx-bootstrap-tabs.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-/* harmony import */ var _lists_lists_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./lists/lists.component */ "./src/app/lists/lists.component.ts");
-/* harmony import */ var _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./members/member-list/member-list.component */ "./src/app/members/member-list/member-list.component.ts");
-/* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./routes */ "./src/app/routes.ts");
-/* harmony import */ var _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./members/member-card/member-card.component */ "./src/app/members/member-card/member-card.component.ts");
-/* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
-/* harmony import */ var _resolvers_member_detail_resolver__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./_resolvers/member-detail.resolver */ "./src/app/_resolvers/member-detail.resolver.ts");
-/* harmony import */ var _resolvers_member_list_resolver__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./_resolvers/member-list.resolver */ "./src/app/_resolvers/member-list.resolver.ts");
-/* harmony import */ var _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./members/member-edit/member-edit.component */ "./src/app/members/member-edit/member-edit.component.ts");
-/* harmony import */ var _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./_resolvers/member-edit.resolver */ "./src/app/_resolvers/member-edit.resolver.ts");
-/* harmony import */ var _guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./_guards/prevent-unsaved-changes.guard */ "./src/app/_guards/prevent-unsaved-changes.guard.ts");
-/* harmony import */ var _members_photo_editor_photo_editor_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./members/photo-editor/photo-editor.component */ "./src/app/members/photo-editor/photo-editor.component.ts");
+/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/fesm2015/ng2-file-upload.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _nav_menu_nav_menu_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./nav-menu/nav-menu.component */ "./src/app/nav-menu/nav-menu.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _counter_counter_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./counter/counter.component */ "./src/app/counter/counter.component.ts");
+/* harmony import */ var _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./fetch-data/fetch-data.component */ "./src/app/fetch-data/fetch-data.component.ts");
+/* harmony import */ var _nav_nav_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./nav/nav.component */ "./src/app/nav/nav.component.ts");
+/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
+/* harmony import */ var _services_error_interceptor__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./_services/error.interceptor */ "./src/app/_services/error.interceptor.ts");
+/* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "./node_modules/ngx-bootstrap/dropdown/fesm2015/ngx-bootstrap-dropdown.js");
+/* harmony import */ var angular_font_awesome__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! angular-font-awesome */ "./node_modules/angular-font-awesome/dist/angular-font-awesome.js");
+/* harmony import */ var ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ngx-bootstrap/tabs */ "./node_modules/ngx-bootstrap/tabs/fesm2015/ngx-bootstrap-tabs.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+/* harmony import */ var _lists_lists_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./lists/lists.component */ "./src/app/lists/lists.component.ts");
+/* harmony import */ var _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./members/member-list/member-list.component */ "./src/app/members/member-list/member-list.component.ts");
+/* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./routes */ "./src/app/routes.ts");
+/* harmony import */ var _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./members/member-card/member-card.component */ "./src/app/members/member-card/member-card.component.ts");
+/* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
+/* harmony import */ var _resolvers_member_detail_resolver__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./_resolvers/member-detail.resolver */ "./src/app/_resolvers/member-detail.resolver.ts");
+/* harmony import */ var _resolvers_member_list_resolver__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./_resolvers/member-list.resolver */ "./src/app/_resolvers/member-list.resolver.ts");
+/* harmony import */ var _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./members/member-edit/member-edit.component */ "./src/app/members/member-edit/member-edit.component.ts");
+/* harmony import */ var _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./_resolvers/member-edit.resolver */ "./src/app/_resolvers/member-edit.resolver.ts");
+/* harmony import */ var _guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./_guards/prevent-unsaved-changes.guard */ "./src/app/_guards/prevent-unsaved-changes.guard.ts");
+/* harmony import */ var _members_photo_editor_photo_editor_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./members/photo-editor/photo-editor.component */ "./src/app/members/photo-editor/photo-editor.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -863,6 +881,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -911,31 +930,32 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
-            _nav_menu_nav_menu_component__WEBPACK_IMPORTED_MODULE_8__["NavMenuComponent"],
-            _home_home_component__WEBPACK_IMPORTED_MODULE_9__["HomeComponent"],
-            _counter_counter_component__WEBPACK_IMPORTED_MODULE_10__["CounterComponent"],
-            _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_11__["FetchDataComponent"],
-            _nav_nav_component__WEBPACK_IMPORTED_MODULE_12__["NavComponent"],
-            _register_register_component__WEBPACK_IMPORTED_MODULE_13__["RegisterComponent"],
-            _lists_lists_component__WEBPACK_IMPORTED_MODULE_19__["ListsComponent"],
-            _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_20__["MemberListComponent"],
-            _messages_messages_component__WEBPACK_IMPORTED_MODULE_21__["MessagesComponent"],
-            _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_23__["MemberCardComponent"],
-            _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_24__["MemberDetailComponent"],
-            _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_27__["MemberEditComponent"],
-            _members_photo_editor_photo_editor_component__WEBPACK_IMPORTED_MODULE_30__["PhotoEditorComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
+            _nav_menu_nav_menu_component__WEBPACK_IMPORTED_MODULE_9__["NavMenuComponent"],
+            _home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"],
+            _counter_counter_component__WEBPACK_IMPORTED_MODULE_11__["CounterComponent"],
+            _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_12__["FetchDataComponent"],
+            _nav_nav_component__WEBPACK_IMPORTED_MODULE_13__["NavComponent"],
+            _register_register_component__WEBPACK_IMPORTED_MODULE_14__["RegisterComponent"],
+            _lists_lists_component__WEBPACK_IMPORTED_MODULE_20__["ListsComponent"],
+            _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_21__["MemberListComponent"],
+            _messages_messages_component__WEBPACK_IMPORTED_MODULE_22__["MessagesComponent"],
+            _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_24__["MemberCardComponent"],
+            _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_25__["MemberDetailComponent"],
+            _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_28__["MemberEditComponent"],
+            _members_photo_editor_photo_editor_component__WEBPACK_IMPORTED_MODULE_31__["PhotoEditorComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-            angular_font_awesome__WEBPACK_IMPORTED_MODULE_16__["AngularFontAwesomeModule"],
+            angular_font_awesome__WEBPACK_IMPORTED_MODULE_17__["AngularFontAwesomeModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_18__["BrowserAnimationsModule"],
-            ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_17__["TabsModule"].forRoot(),
-            ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_15__["BsDropdownModule"].forRoot(),
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_22__["appRoutes"]),
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_19__["BrowserAnimationsModule"],
+            ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_18__["TabsModule"].forRoot(),
+            ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_16__["BsDropdownModule"].forRoot(),
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_23__["appRoutes"]),
             ngx_gallery__WEBPACK_IMPORTED_MODULE_6__["NgxGalleryModule"],
+            ng2_file_upload__WEBPACK_IMPORTED_MODULE_7__["FileUploadModule"],
             _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_5__["JwtModule"].forRoot({
                 config: {
                     tokenGetter,
@@ -946,14 +966,14 @@ AppModule = __decorate([
         ],
         providers: [
             // AuthService,
-            _services_error_interceptor__WEBPACK_IMPORTED_MODULE_14__["ErrorInterceptorProvider"],
-            _resolvers_member_detail_resolver__WEBPACK_IMPORTED_MODULE_25__["MemberDetailResolver"],
-            _resolvers_member_list_resolver__WEBPACK_IMPORTED_MODULE_26__["MemberListResolver"],
-            _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_28__["MemberEditResolver"],
-            _guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_29__["PreventUnsavedChanges"],
+            _services_error_interceptor__WEBPACK_IMPORTED_MODULE_15__["ErrorInterceptorProvider"],
+            _resolvers_member_detail_resolver__WEBPACK_IMPORTED_MODULE_26__["MemberDetailResolver"],
+            _resolvers_member_list_resolver__WEBPACK_IMPORTED_MODULE_27__["MemberListResolver"],
+            _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_29__["MemberEditResolver"],
+            _guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_30__["PreventUnsavedChanges"],
             { provide: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["HAMMER_GESTURE_CONFIG"], useClass: CustomHammerConfig }
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
     })
 ], AppModule);
 
@@ -1397,8 +1417,9 @@ let MemberEditComponent = class MemberEditComponent {
     }
     ngOnInit() {
         this.route.data.subscribe(data => {
-            this.user = data[`user`];
+            this.user = data['user'];
         });
+        this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
     }
     updateUser() {
         this.userService.updateUser(this.authService.decodedToken.nameid, this.user).subscribe(next => {
@@ -1407,6 +1428,9 @@ let MemberEditComponent = class MemberEditComponent {
         }, error => {
             this.alertify.error(error);
         });
+    }
+    updateMainPhoto(photoUrl) {
+        this.user.photoUrl = photoUrl;
     }
 };
 MemberEditComponent.ctorParameters = () => [
@@ -1528,7 +1552,7 @@ MemberListComponent = __decorate([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("img.img-thumnail {\r\n    height: 100px;\r\n    min-width: 100px !important;\r\n    margin-bottom: 2px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy9waG90by1lZGl0b3IvcGhvdG8tZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0lBQ2IsMkJBQTJCO0lBQzNCLGtCQUFrQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvcGhvdG8tZWRpdG9yL3Bob3RvLWVkaXRvci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW1nLmltZy10aHVtbmFpbCB7XHJcbiAgICBoZWlnaHQ6IDEwMHB4O1xyXG4gICAgbWluLXdpZHRoOiAxMDBweCAhaW1wb3J0YW50O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMnB4O1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("img.img-thumnail {\r\n    height: 100px;\r\n    min-width: 100px !important;\r\n    margin-bottom: 2px;\r\n}\r\n.nv-file-over {\r\n    border: dotted 3px red;\r\n}\r\ninput[type=file] {\r\n    color: transparent;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy9waG90by1lZGl0b3IvcGhvdG8tZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0lBQ2IsMkJBQTJCO0lBQzNCLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksc0JBQXNCO0FBQzFCO0FBRUE7SUFDSSxrQkFBa0I7QUFDdEIiLCJmaWxlIjoic3JjL2FwcC9tZW1iZXJzL3Bob3RvLWVkaXRvci9waG90by1lZGl0b3IuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImltZy5pbWctdGh1bW5haWwge1xyXG4gICAgaGVpZ2h0OiAxMDBweDtcclxuICAgIG1pbi13aWR0aDogMTAwcHggIWltcG9ydGFudDtcclxuICAgIG1hcmdpbi1ib3R0b206IDJweDtcclxufVxyXG4ubnYtZmlsZS1vdmVyIHtcclxuICAgIGJvcmRlcjogZG90dGVkIDNweCByZWQ7XHJcbn1cclxuXHJcbmlucHV0W3R5cGU9ZmlsZV0ge1xyXG4gICAgY29sb3I6IHRyYW5zcGFyZW50O1xyXG59XHJcblxyXG4iXX0= */");
 
 /***/ }),
 
@@ -1543,6 +1567,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PhotoEditorComponent", function() { return PhotoEditorComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/fesm2015/ng2-file-upload.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_services/auth.service */ "./src/app/_services/auth.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../_services/user.service */ "./src/app/_services/user.service.ts");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1556,22 +1585,93 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
+
+
+
+
+
 let PhotoEditorComponent = class PhotoEditorComponent {
-    constructor() { }
+    constructor(authService, userService, alertify) {
+        this.authService = authService;
+        this.userService = userService;
+        this.alertify = alertify;
+        this.getMemberPhotoChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.hasBaseDropZoneOver = false;
+        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl;
+    }
     ngOnInit() {
+        this.initializeUploader();
+    }
+    fileOverBase(e) {
+        this.hasBaseDropZoneOver = e;
+    }
+    initializeUploader() {
+        this.uploader = new ng2_file_upload__WEBPACK_IMPORTED_MODULE_1__["FileUploader"]({
+            url: this.baseUrl +
+                'users/' +
+                this.authService.decodedToken.nameid +
+                '/photos',
+            authToken: 'Bearer ' + localStorage.getItem('token'),
+            isHTML5: true,
+            allowedFileType: ['image'],
+            removeAfterUpload: true,
+            autoUpload: false,
+            maxFileSize: 10 * 1024 * 1024
+        });
+        this.uploader.onAfterAddingFile = file => {
+            file.withCredentials = false;
+        };
+        this.uploader.onSuccessItem = (item, response, status, headers) => {
+            if (response) {
+                const res = JSON.parse(response);
+                const photo = {
+                    id: res.id,
+                    url: res.url,
+                    dateAdded: res.dateAdded,
+                    description: res.description,
+                    isMain: res.isMain
+                };
+                this.photos.push(photo);
+            }
+        };
+    }
+    setMainPhoto(photo) {
+        this.userService
+            .setMainPhoto(this.authService.decodedToken.nameid, photo.id)
+            .subscribe(() => {
+            this.currentMain = this.photos.filter(p => p.isMain === true)[0];
+            this.currentMain.isMain = false;
+            photo.isMain = true;
+            this.authService.changeMemberPhoto(photo.url);
+            this.authService.currentUser.photoUrl = photo.url;
+            localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
+        }, error => {
+            this.alertify.error(error);
+        });
     }
 };
+PhotoEditorComponent.ctorParameters = () => [
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+    { type: _services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_5__["AlertifyService"] }
+];
 __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
     __metadata("design:type", Array)
 ], PhotoEditorComponent.prototype, "photos", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+    __metadata("design:type", Object)
+], PhotoEditorComponent.prototype, "getMemberPhotoChange", void 0);
 PhotoEditorComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-photo-editor',
         template: __importDefault(__webpack_require__(/*! raw-loader!./photo-editor.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/photo-editor/photo-editor.component.html")).default,
         styles: [__importDefault(__webpack_require__(/*! ./photo-editor.component.css */ "./src/app/members/photo-editor/photo-editor.component.css")).default]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+        _services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        _services_alertify_service__WEBPACK_IMPORTED_MODULE_5__["AlertifyService"]])
 ], PhotoEditorComponent);
 
 
@@ -1699,7 +1799,7 @@ NavMenuComponent = __decorate([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".dropdown-toggle,\r\n.dropdown-item {\r\n    cursor: pointer;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2L25hdi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztJQUVJLGVBQWU7QUFDbkIiLCJmaWxlIjoic3JjL2FwcC9uYXYvbmF2LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZHJvcGRvd24tdG9nZ2xlLFxyXG4uZHJvcGRvd24taXRlbSB7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".dropdown-toggle,\r\n.dropdown-item {\r\n    cursor: pointer;\r\n}\r\nimg {\r\n    max-height: 50px;\r\n    border: 1px solid white;\r\n    display: inline;\r\n    border-radius: 3px;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2L25hdi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztJQUVJLGVBQWU7QUFDbkI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQix1QkFBdUI7SUFDdkIsZUFBZTtJQUNmLGtCQUFrQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL25hdi9uYXYuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kcm9wZG93bi10b2dnbGUsXHJcbi5kcm9wZG93bi1pdGVtIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5pbWcge1xyXG4gICAgbWF4LWhlaWdodDogNTBweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIHdoaXRlO1xyXG4gICAgZGlzcGxheTogaW5saW5lO1xyXG4gICAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG59XHJcblxyXG4iXX0= */");
 
 /***/ }),
 
@@ -1741,6 +1841,7 @@ let NavComponent = class NavComponent {
         this.model = {};
     }
     ngOnInit() {
+        this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
     }
     login() {
         this.authService.login(this.model).subscribe(next => {
@@ -1756,6 +1857,9 @@ let NavComponent = class NavComponent {
     }
     logout() {
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.authService.decodedToken = null;
+        this.authService.currentUser = null;
         this.alertify.message('logged out');
         this.router.navigate(['/home']);
     }

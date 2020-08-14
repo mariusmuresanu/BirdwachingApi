@@ -17,14 +17,12 @@ namespace BirdwachingApi.Data
         }
         public async Task<User> Login(string username, string password)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
+            var user = await _context.Users.Include(p => p.Photos).FirstOrDefaultAsync(x => x.Username == username);
 
             if (user == null)
-
                 return null;
 
             if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
-
                 return null;
 
             return user;
@@ -69,7 +67,6 @@ namespace BirdwachingApi.Data
         public async Task<bool> UserExists(string username)
         {
             if (await _context.Users.AnyAsync(x => x.Username == username))
-
                 return true;
 
             return false;
