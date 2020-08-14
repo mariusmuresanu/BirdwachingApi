@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form #registerForm=\"ngForm\" (ngSubmit)=\"register()\">\r\n    <h2 class=\"text-center text-primary\">Sign Up</h2>\r\n    <hr>\r\n\r\n    <div class=\"form-group\">\r\n        <input type=\"text\" class=\"form-control\" required name=\"username\" [(ngModel)]=\"model.username\" placeholder=\"Username\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <input type=\"password\" class=\"form-control\" required name=\"password\" [(ngModel)]=\"model.password\" placeholder=\"Password\">\r\n    </div>\r\n\r\n    <div class=\"form-group text-center\">\r\n        <button class=\"btn btn-success\" type=\"submit\">Register</button>\r\n        <button class=\"btn btn-default\" type=\"button\" (click)=\"cancel()\">Cancel</button>\r\n    </div>\r\n\r\n</form>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<form [formGroup]=\"registerForm\" (ngSubmit)=\"register()\">\r\n    <h2 class=\"text-center text-primary\">Sign Up</h2>\r\n    <hr>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"control-label\" style=\"margin-right:10px\">I am a: </label>\r\n        <label class=\"radio-inline\">\r\n            <input class=\"mr-3\" type=\"radio\" value=\"male\" formControlName=\"gender\">Male\r\n        </label>\r\n        <label class=\"radio-inline ml-3\">\r\n            <input class=\"mr-3\" type=\"radio\" value=\"female\" formControlName=\"gender\">Female\r\n        </label>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <input type=\"text\"\r\n               [ngClass]=\"{'is-invalid': registerForm.get('username').errors\r\n               && registerForm.get('username').touched}\"\r\n               class=\"form-control\"\r\n               formControlName=\"username\"\r\n               placeholder=\"Username\">\r\n        <div class=\"invalid-feedback\">Please choose a username</div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <input [ngClass]=\"{'is-invalid': registerForm.get('knownAs').errors\r\n               && registerForm.get('knownAs').touched}\" class=\"form-control\"\r\n               placeholder=\"Known as\" formControlName=\"knownAs\">\r\n        <div class=\"invalid-feedback\" *ngIf=\"registerForm.get('knownAs').touched\r\n             && registerForm.get('knownAs').hasError('required')\">Known as is required</div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <input [ngClass]=\"{'is-invalid': registerForm.get('dateOfBirth').errors\r\n               && registerForm.get('dateOfBirth').touched}\" class=\"form-control\"\r\n               placeholder=\"Date of Birth\" formControlName=\"dateOfBirth\" type=\"date\">\r\n        <div class=\"invalid-feedback\" *ngIf=\"registerForm.get('dateOfBirth').touched\r\n             && registerForm.get('dateOfBirth').hasError('required')\">Date of Birth is required</div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <input [ngClass]=\"{'is-invalid': registerForm.get('city').errors\r\n               && registerForm.get('city').touched}\" class=\"form-control\"\r\n               placeholder=\"City\" formControlName=\"city\">\r\n        <div class=\"invalid-feedback\" *ngIf=\"registerForm.get('city').touched\r\n             && registerForm.get('city').hasError('required')\">City is required</div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <input [ngClass]=\"{'is-invalid': registerForm.get('country').errors\r\n               && registerForm.get('country').touched}\" class=\"form-control\"\r\n               placeholder=\"Country\" formControlName=\"country\">\r\n        <div class=\"invalid-feedback\" *ngIf=\"registerForm.get('country').touched\r\n             && registerForm.get('country').hasError('required')\">Country is required</div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <input type=\"password\"\r\n               [ngClass]=\"{'is-invalid': registerForm.get('password').errors\r\n               && registerForm.get('password').touched}\"\r\n               class=\"form-control\"\r\n               formControlName=\"password\"\r\n               placeholder=\"Password\">\r\n        <div class=\"invalid-feedback\"\r\n             *ngIf=\"registerForm.get('password').hasError('required')\r\n               && registerForm.get('password').touched\">\r\n            Password is  required\r\n        </div>\r\n        <div class=\"invalid-feedback\"\r\n             *ngIf=\"registerForm.get('password').hasError('minlength')\r\n               && registerForm.get('password').touched\">\r\n            Password must be at least 4 characters\r\n        </div>\r\n        <div class=\"invalid-feedback\"\r\n             *ngIf=\"registerForm.get('password').hasError('maxlength')\r\n               && registerForm.get('password').touched\">\r\n            Password cannot exceed 10 characters\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <input type=\"password\"\r\n               [ngClass]=\"{'is-invalid': registerForm.get('confirmPassword').errors\r\n               && registerForm.get('confirmPassword').touched\r\n               || registerForm.get('confirmPassword').touched\r\n               && registerForm.hasError('mismatch')}\"\r\n               class=\"form-control\"\r\n               formControlName=\"confirmPassword\"\r\n               placeholder=\"Confirm Password\">\r\n        <div class=\"invalid-feedback\"\r\n             *ngIf=\"registerForm.get('confirmPassword').hasError('required')\r\n               && registerForm.get('confirmPassword').touched\">\r\n            Password is  required\r\n        </div>\r\n        <div class=\"invalid-feedback\"\r\n             *ngIf=\"registerForm.hasError('mismatch')\r\n               && registerForm.get('confirmPassword').touched\">\r\n            Password must match\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group text-center\">\r\n        <button class=\"btn btn-success\" [disabled]=\"!registerForm.valid\" type=\"submit\">Register</button>\r\n        <button class=\"btn btn-default\" type=\"button\" (click)=\"cancel()\">Cancel</button>\r\n    </div>\r\n</form>\r\n\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -953,6 +953,7 @@ AppModule = __decorate([
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
             angular_font_awesome__WEBPACK_IMPORTED_MODULE_17__["AngularFontAwesomeModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_19__["BrowserAnimationsModule"],
             ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_18__["TabsModule"].forRoot(),
             ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_16__["BsDropdownModule"].forRoot(),
@@ -1922,6 +1923,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_services/auth.service */ "./src/app/_services/auth.service.ts");
 /* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1937,20 +1939,48 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 let RegisterComponent = class RegisterComponent {
-    constructor(authService, alertify) {
+    constructor(authService, alertify, fb) {
         this.authService = authService;
         this.alertify = alertify;
+        this.fb = fb;
         this.cancelRegister = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.model = {};
     }
-    ngOnInit() { }
+    ngOnInit() {
+        this.createRegisterForm();
+        //this.registerForm = new FormGroup({
+        //    username: new FormControl('', Validators.required),
+        //    password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]),
+        //    confirmPassword: new FormControl('', Validators.required)
+        //}, this.passwordMatchValidator);
+    }
+    createRegisterForm() {
+        this.registerForm = this.fb.group({
+            gender: ['male'],
+            username: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            knownAs: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            dateOfBirth: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            city: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            country: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(4), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(8)]],
+            confirmPassword: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
+        }, { validator: this.passwordMatchValidator });
+    }
+    passwordMatchValidator(g) {
+        return g.get('password').value === g.get('confirmPassword').value ? null : { 'mismatch': true };
+    }
     register() {
-        this.authService.register(this.model).subscribe(() => {
-            this.alertify.success('registration successful');
-        }, error => {
-            this.alertify.error(error);
-        });
+        //this.authService.register(this.model).subscribe(
+        //    () => {
+        //        this.alertify.success('registration successful');
+        //    },
+        //    error => {
+        //        this.alertify.error(error);
+        //    }
+        //);
+        console.log(this.registerForm.value);
     }
     cancel() {
         this.cancelRegister.emit(false);
@@ -1959,7 +1989,8 @@ let RegisterComponent = class RegisterComponent {
 };
 RegisterComponent.ctorParameters = () => [
     { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"] },
-    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"] }
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] }
 ];
 __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
@@ -1971,7 +2002,8 @@ RegisterComponent = __decorate([
         template: __importDefault(__webpack_require__(/*! raw-loader!./register.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/register/register.component.html")).default,
         styles: [__importDefault(__webpack_require__(/*! ./register.component.css */ "./src/app/register/register.component.css")).default]
     }),
-    __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"]])
+    __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+        _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"]])
 ], RegisterComponent);
 
 

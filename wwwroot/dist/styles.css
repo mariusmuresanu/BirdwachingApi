@@ -2465,9 +2465,10 @@ a.text-dark:hover,a.text-dark:focus{color:#121416 !important}
 
 /* Provide sufficient contrast against white background */
 
-===========
+/*===========
 Snippet for styles.css to style the tabs component
 ===========
+*/
 
 .tab-panel {
     border: 1px solid #ddd;
