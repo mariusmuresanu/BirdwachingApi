@@ -752,6 +752,9 @@ let UserService = class UserService {
     setMainPhoto(userId, id) {
         return this.http.post(this.baseUrl + 'users/' + userId + '/photos/' + id + '/setMain', {});
     }
+    deletePhoto(userId, id) {
+        return this.http.delete(this.baseUrl + 'users/' + userId + '/photos/' + id);
+    }
 };
 UserService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -1647,6 +1650,16 @@ let PhotoEditorComponent = class PhotoEditorComponent {
             localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
         }, error => {
             this.alertify.error(error);
+        });
+    }
+    deletePhoto(id) {
+        this.alertify.confirm('Are you sure you want to delete this photo?', () => {
+            this.userService.deletePhoto(this.authService.decodedToken.nameid, id)
+                .subscribe(() => {
+                this.photos.splice(this.photos.findIndex(p => p.id === id), 1);
+            }, error => {
+                this.alertify.error('Failed to delete the photo');
+            });
         });
     }
 };
