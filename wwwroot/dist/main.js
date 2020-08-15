@@ -619,8 +619,8 @@ let AuthService = class AuthService {
             }
         }));
     }
-    register(model) {
-        return this.http.post(this.baseUrl + 'register', model);
+    register(user) {
+        return this.http.post(this.baseUrl + 'register', user);
     }
     loggedIn() {
         const token = localStorage.getItem('token');
@@ -1927,6 +1927,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_services/auth.service */ "./src/app/_services/auth.service.ts");
 /* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1943,13 +1944,14 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 let RegisterComponent = class RegisterComponent {
-    constructor(authService, alertify, fb) {
+    constructor(authService, router, alertify, fb) {
         this.authService = authService;
+        this.router = router;
         this.alertify = alertify;
         this.fb = fb;
         this.cancelRegister = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.model = {};
     }
     ngOnInit() {
         this.bsConfig = {
@@ -1978,15 +1980,18 @@ let RegisterComponent = class RegisterComponent {
         return g.get('password').value === g.get('confirmPassword').value ? null : { 'mismatch': true };
     }
     register() {
-        //this.authService.register(this.model).subscribe(
-        //    () => {
-        //        this.alertify.success('registration successful');
-        //    },
-        //    error => {
-        //        this.alertify.error(error);
-        //    }
-        //);
-        console.log(this.registerForm.value);
+        if (this.registerForm.valid) {
+            this.user = Object.assign({}, this.registerForm.value);
+            this.authService.register(this.user).subscribe(() => {
+                this.alertify.success('Registration succesful');
+            }, error => {
+                this.alertify.error(error);
+            }, () => {
+                this.authService.login(this.user).subscribe(() => {
+                    this.router.navigate(['/members']);
+                });
+            });
+        }
     }
     cancel() {
         this.cancelRegister.emit(false);
@@ -1995,6 +2000,7 @@ let RegisterComponent = class RegisterComponent {
 };
 RegisterComponent.ctorParameters = () => [
     { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
     { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"] },
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] }
 ];
@@ -2008,7 +2014,7 @@ RegisterComponent = __decorate([
         template: __importDefault(__webpack_require__(/*! raw-loader!./register.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/register/register.component.html")).default,
         styles: [__importDefault(__webpack_require__(/*! ./register.component.css */ "./src/app/register/register.component.css")).default]
     }),
-    __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+    __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
         _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"]])
 ], RegisterComponent);
 
