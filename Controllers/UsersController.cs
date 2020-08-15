@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BirdwachingApi.Data;
 using BirdwachingApi.Dtos;
+using BirdwachingApi.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BirdwachingApi.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]

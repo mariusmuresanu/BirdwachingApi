@@ -33,6 +33,7 @@ import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 
 
@@ -61,7 +62,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
     MemberListComponent,
     MessagesComponent,
     MemberCardComponent,
-    MemberDetailComponent,
+        MemberDetailComponent,
+        TimeAgoPipe,
     MemberEditComponent,
     PhotoEditorComponent
   ],

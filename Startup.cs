@@ -55,6 +55,7 @@ namespace BirdwachingApi
                     };
 
                 });
+            services.AddScoped<LogUserActivity>();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
