@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container mt-5\">\r\n  <div class=\"row\">\r\n    <div *ngFor =\"let user of users\" class=\"col-lg-2 col-md-3 col-sm-6\">\r\n<app-member-card [user] =\"user\"></app-member-card>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"d-flex justify-content-center\">\r\n    <pagination [boundaryLinks]=\"true\"\r\n                [totalItems]=\"pagination.totalItems\"\r\n                [itemsPerPage]=\"pagination.itemsPerPage\"\r\n                [(ngModel)] =\"pagination.currentPage\"\r\n                (pageChanged)=\"pageChanged($event)\"\r\n                previousText=\"&lsaquo;\" nextText=\"&rsaquo;\" firstText=\"&laquo;\" lastText=\"&raquo;\">\r\n    </pagination>\r\n\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"text-center mt-3\">\r\n    <h2>Your matches - {{pagination.totalItems}} found</h2>\r\n</div>\r\n\r\n<div class=\"container mt-3\">\r\n\r\n    <form class=\"form-inline\" #form=\"ngForm\" (ngSubmit)=\"loadUsers()\" novalidate>\r\n        <div class=\"form-group\">\r\n            <label for=\"minAge\">Age From</label>\r\n            <input type=\"number\" class=\"form-control ml-1\" style=\"width: 70px\" id=\"minAge\"\r\n                   [(ngModel)]=\"userParams.minAge\" name=\"minAge\">\r\n        </div>\r\n\r\n        <div class=\"form-group px-2\">\r\n            <label for=\"maxAge\">Age To</label>\r\n            <input type=\"number\" class=\"form-control ml-1\" style=\"width: 70px\" id=\"maxAge\"\r\n                   [(ngModel)]=\"userParams.maxAge\" name=\"maxAge\">\r\n        </div>\r\n\r\n        <div class=\"form-group px-2\">\r\n            <label for=\"gender\">Show: </label>\r\n            <select class=\"form-control ml-1\" style=\"width: 130px\" id=\"gender\"\r\n                    [(ngModel)]=\"userParams.gender\" name=\"gender\">\r\n                <option *ngFor=\"let gender of genderList\" [value]=\"gender.value\">\r\n                    {{gender.display}}\r\n                </option>\r\n            </select>\r\n        </div>\r\n        <button type=\"submit\" class=\"btn btn-primary\" style=\"margin-left:10px\">Apply Filters</button>\r\n        <button type=\"button\" class=\"btn btn-info\" (click)=\"resetFilters()\" style=\"margin-left:10px\">\r\n            Reset Filter\r\n        </button>\r\n        <div class=\"col\">\r\n            <div class=\"btn-group float-right\">\r\n                <button type=\"button\" name=\"orderBy\" class=\"btn btn-primary\"\r\n                        [(ngModel)]=\"userParams.orderBy\" (click)=\"loadUsers()\" btnRadio=\"lastActive\">\r\n                    Last Active\r\n                </button>\r\n                <button type=\"button\" name=\"orderBy\" class=\"btn btn-primary\"\r\n                        [(ngModel)]=\"userParams.orderBy\" (click)=\"loadUsers()\" btnRadio=\"created\">\r\n                    Newest Members\r\n                </button>\r\n            </div>\r\n        </div>\r\n\r\n    </form>\r\n    <br>\r\n\r\n\r\n    <div class=\"row\">\r\n        <div *ngFor=\"let user of users\" class=\"col-lg-2 col-md-3 col-sm-6\">\r\n            <app-member-card [user]=\"user\"></app-member-card>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"d-flex justify-content-center\">\r\n    <pagination [boundaryLinks]=\"true\"\r\n                [totalItems]=\"pagination.totalItems\"\r\n                [(ngModel)]=\"pagination.currentPage\"\r\n                [itemsPerPage]=\"pagination.itemsPerPage\"\r\n                (pageChanged)=\"pageChanged($event)\"\r\n                previousText=\"&lsaquo;\" nextText=\"&rsaquo;\" firstText=\"&laquo;\" lastText=\"&raquo;\">\r\n\r\n    </pagination>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -765,12 +765,17 @@ let UserService = class UserService {
         this.http = http;
         this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl;
     }
-    getUsers(page, itemsPerPage) {
+    getUsers(page, itemsPerPage, userParams) {
         const paginatedResult = new _models_pagination__WEBPACK_IMPORTED_MODULE_3__["PaginatedResult"]();
         let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
         if (page != null && itemsPerPage != null) {
             params = params.append('pageNumber', page);
             params = params.append('pageSize', itemsPerPage);
+        }
+        if (userParams != null) {
+            params = params.append('minAge', userParams.minAge);
+            params = params.append('maxAge', userParams.maxAge);
+            params = params.append('gender', userParams.gender);
         }
         return this.http.get(this.baseUrl + 'users', { observe: 'response', params })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => {
@@ -1562,19 +1567,34 @@ let MemberListComponent = class MemberListComponent {
         this.userService = userService;
         this.alertify = alertify;
         this.route = route;
+        this.user = JSON.parse(localStorage.getItem('user'));
+        this.genderList = [
+            { value: 'male', display: 'Males' },
+            { value: 'female', display: 'Females' }
+        ];
+        this.userParams = {};
     }
     ngOnInit() {
         this.route.data.subscribe(data => {
             this.users = data['users'].result;
             this.pagination = data['users'].pagination;
         });
+        this.userParams.gender = this.user.gender === 'female' ? 'male' : 'female';
+        this.userParams.minAge = 18;
+        this.userParams.maxAge = 99;
     }
     pageChanged(event) {
         this.pagination.currentPage = event.page;
         this.loadUsers();
     }
+    resetFilters() {
+        this.userParams.gender = this.user.gender === 'female' ? 'male' : 'female';
+        this.userParams.minAge = 18;
+        this.userParams.maxAge = 99;
+        this.loadUsers();
+    }
     loadUsers() {
-        this.userService.getUsers(this.pagination.currentPage, this.pagination.itemsPerPage)
+        this.userService.getUsers(this.pagination.currentPage, this.pagination.itemsPerPage, this.userParams)
             .subscribe((res) => {
             this.users = res.result;
             this.pagination = res.pagination;
