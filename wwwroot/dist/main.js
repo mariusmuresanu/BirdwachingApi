@@ -303,6 +303,25 @@ PreventUnsavedChanges = __decorate([
 
 /***/ }),
 
+/***/ "./src/app/_models/pagination.ts":
+/*!***************************************!*\
+  !*** ./src/app/_models/pagination.ts ***!
+  \***************************************/
+/*! exports provided: PaginatedResult */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaginatedResult", function() { return PaginatedResult; });
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+class PaginatedResult {
+}
+
+
+/***/ }),
+
 /***/ "./src/app/_resolvers/member-detail.resolver.ts":
 /*!******************************************************!*\
   !*** ./src/app/_resolvers/member-detail.resolver.ts ***!
@@ -475,9 +494,11 @@ let MemberListResolver = class MemberListResolver {
         this.userService = userService;
         this.router = router;
         this.alertify = alertify;
+        this.pageNumber = 1;
+        this.pageSize = 5;
     }
     resolve(route) {
-        return this.userService.getUsers().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => {
+        return this.userService.getUsers(this.pageNumber, this.pageSize).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => {
             this.alertify.error('Problem retrieving data');
             this.router.navigate(['/home']);
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(null);
@@ -720,6 +741,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _models_pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_models/pagination */ "./src/app/_models/pagination.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -735,13 +758,28 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
+
 let UserService = class UserService {
     constructor(http) {
         this.http = http;
         this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl;
     }
-    getUsers() {
-        return this.http.get(this.baseUrl + 'users');
+    getUsers(page, itemsPerPage) {
+        const paginatedResult = new _models_pagination__WEBPACK_IMPORTED_MODULE_3__["PaginatedResult"]();
+        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
+        if (page != null && itemsPerPage != null) {
+            params = params.append('pageNumber', page);
+            params = params.append('pageSize', itemsPerPage);
+        }
+        return this.http.get(this.baseUrl + 'users', { observe: 'response', params })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => {
+            paginatedResult.result = response.body;
+            if (response.headers.get('Pagination') != null) {
+                paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+            }
+            return paginatedResult;
+        }));
     }
     getUser(id) {
         return this.http.get(this.baseUrl + 'users/' + id);
@@ -1524,14 +1562,7 @@ let MemberListComponent = class MemberListComponent {
     }
     ngOnInit() {
         this.route.data.subscribe(data => {
-            this.users = data['users'];
-        });
-    }
-    loadUsers() {
-        this.userService.getUsers().subscribe((users) => {
-            this.users = users;
-        }, error => {
-            this.alertify.error(error);
+            this.users = data['users'].result;
         });
     }
 };
