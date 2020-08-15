@@ -27,9 +27,10 @@ namespace BirdwachingApi.Helpers
                     opt.MapFrom(d => d.DateOfBirth.CalculateAge());
                 });
             CreateMap<Photo, PhotosForDetailedDto>();
-            CreateMap<UserForUpdateDto, User>();
             CreateMap<Photo, PhotoForReturnDto>();
             CreateMap<PhotoForCreationDto, Photo>();
+            CreateMap<UserForUpdateDto, User>();
+            CreateMap<UserForRegisterDto, User>();
         }
     }
 }
