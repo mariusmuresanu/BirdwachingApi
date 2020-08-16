@@ -776,6 +776,7 @@ let UserService = class UserService {
             params = params.append('minAge', userParams.minAge);
             params = params.append('maxAge', userParams.maxAge);
             params = params.append('gender', userParams.gender);
+            params = params.append('orderBy', userParams.orderBy);
         }
         return this.http.get(this.baseUrl + 'users', { observe: 'response', params })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => {
@@ -905,22 +906,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "./node_modules/ngx-bootstrap/dropdown/fesm2015/ngx-bootstrap-dropdown.js");
 /* harmony import */ var angular_font_awesome__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! angular-font-awesome */ "./node_modules/angular-font-awesome/dist/angular-font-awesome.js");
 /* harmony import */ var ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ngx-bootstrap/tabs */ "./node_modules/ngx-bootstrap/tabs/fesm2015/ngx-bootstrap-tabs.js");
-/* harmony import */ var ngx_bootstrap_pagination__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-bootstrap/pagination */ "./node_modules/ngx-bootstrap/pagination/fesm2015/ngx-bootstrap-pagination.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-/* harmony import */ var _lists_lists_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./lists/lists.component */ "./src/app/lists/lists.component.ts");
-/* harmony import */ var _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./members/member-list/member-list.component */ "./src/app/members/member-list/member-list.component.ts");
-/* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./routes */ "./src/app/routes.ts");
-/* harmony import */ var _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./members/member-card/member-card.component */ "./src/app/members/member-card/member-card.component.ts");
-/* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
-/* harmony import */ var _resolvers_member_detail_resolver__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./_resolvers/member-detail.resolver */ "./src/app/_resolvers/member-detail.resolver.ts");
-/* harmony import */ var _resolvers_member_list_resolver__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./_resolvers/member-list.resolver */ "./src/app/_resolvers/member-list.resolver.ts");
-/* harmony import */ var _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./members/member-edit/member-edit.component */ "./src/app/members/member-edit/member-edit.component.ts");
-/* harmony import */ var _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./_resolvers/member-edit.resolver */ "./src/app/_resolvers/member-edit.resolver.ts");
-/* harmony import */ var _guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./_guards/prevent-unsaved-changes.guard */ "./src/app/_guards/prevent-unsaved-changes.guard.ts");
-/* harmony import */ var _members_photo_editor_photo_editor_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./members/photo-editor/photo-editor.component */ "./src/app/members/photo-editor/photo-editor.component.ts");
-/* harmony import */ var ngx_bootstrap_datepicker__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ngx-bootstrap/datepicker */ "./node_modules/ngx-bootstrap/datepicker/fesm2015/ngx-bootstrap-datepicker.js");
-/* harmony import */ var time_ago_pipe__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! time-ago-pipe */ "./node_modules/time-ago-pipe/esm2015/time-ago-pipe.js");
+/* harmony import */ var ngx_bootstrap_buttons__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-bootstrap/buttons */ "./node_modules/ngx-bootstrap/buttons/fesm2015/ngx-bootstrap-buttons.js");
+/* harmony import */ var ngx_bootstrap_pagination__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ngx-bootstrap/pagination */ "./node_modules/ngx-bootstrap/pagination/fesm2015/ngx-bootstrap-pagination.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+/* harmony import */ var _lists_lists_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./lists/lists.component */ "./src/app/lists/lists.component.ts");
+/* harmony import */ var _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./members/member-list/member-list.component */ "./src/app/members/member-list/member-list.component.ts");
+/* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./routes */ "./src/app/routes.ts");
+/* harmony import */ var _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./members/member-card/member-card.component */ "./src/app/members/member-card/member-card.component.ts");
+/* harmony import */ var _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./members/member-detail/member-detail.component */ "./src/app/members/member-detail/member-detail.component.ts");
+/* harmony import */ var _resolvers_member_detail_resolver__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./_resolvers/member-detail.resolver */ "./src/app/_resolvers/member-detail.resolver.ts");
+/* harmony import */ var _resolvers_member_list_resolver__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./_resolvers/member-list.resolver */ "./src/app/_resolvers/member-list.resolver.ts");
+/* harmony import */ var _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./members/member-edit/member-edit.component */ "./src/app/members/member-edit/member-edit.component.ts");
+/* harmony import */ var _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./_resolvers/member-edit.resolver */ "./src/app/_resolvers/member-edit.resolver.ts");
+/* harmony import */ var _guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./_guards/prevent-unsaved-changes.guard */ "./src/app/_guards/prevent-unsaved-changes.guard.ts");
+/* harmony import */ var _members_photo_editor_photo_editor_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./members/photo-editor/photo-editor.component */ "./src/app/members/photo-editor/photo-editor.component.ts");
+/* harmony import */ var ngx_bootstrap_datepicker__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ngx-bootstrap/datepicker */ "./node_modules/ngx-bootstrap/datepicker/fesm2015/ngx-bootstrap-datepicker.js");
+/* harmony import */ var time_ago_pipe__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! time-ago-pipe */ "./node_modules/time-ago-pipe/esm2015/time-ago-pipe.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -930,6 +932,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -989,14 +992,14 @@ AppModule = __decorate([
             _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_12__["FetchDataComponent"],
             _nav_nav_component__WEBPACK_IMPORTED_MODULE_13__["NavComponent"],
             _register_register_component__WEBPACK_IMPORTED_MODULE_14__["RegisterComponent"],
-            _lists_lists_component__WEBPACK_IMPORTED_MODULE_21__["ListsComponent"],
-            _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_22__["MemberListComponent"],
-            _messages_messages_component__WEBPACK_IMPORTED_MODULE_23__["MessagesComponent"],
-            _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_25__["MemberCardComponent"],
-            _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_26__["MemberDetailComponent"],
-            time_ago_pipe__WEBPACK_IMPORTED_MODULE_34__["TimeAgoPipe"],
-            _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_29__["MemberEditComponent"],
-            _members_photo_editor_photo_editor_component__WEBPACK_IMPORTED_MODULE_32__["PhotoEditorComponent"]
+            _lists_lists_component__WEBPACK_IMPORTED_MODULE_22__["ListsComponent"],
+            _members_member_list_member_list_component__WEBPACK_IMPORTED_MODULE_23__["MemberListComponent"],
+            _messages_messages_component__WEBPACK_IMPORTED_MODULE_24__["MessagesComponent"],
+            _members_member_card_member_card_component__WEBPACK_IMPORTED_MODULE_26__["MemberCardComponent"],
+            _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_27__["MemberDetailComponent"],
+            time_ago_pipe__WEBPACK_IMPORTED_MODULE_35__["TimeAgoPipe"],
+            _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_30__["MemberEditComponent"],
+            _members_photo_editor_photo_editor_component__WEBPACK_IMPORTED_MODULE_33__["PhotoEditorComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
@@ -1004,12 +1007,13 @@ AppModule = __decorate([
             angular_font_awesome__WEBPACK_IMPORTED_MODULE_17__["AngularFontAwesomeModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_20__["BrowserAnimationsModule"],
-            ngx_bootstrap_pagination__WEBPACK_IMPORTED_MODULE_19__["PaginationModule"].forRoot(),
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_21__["BrowserAnimationsModule"],
+            ngx_bootstrap_pagination__WEBPACK_IMPORTED_MODULE_20__["PaginationModule"].forRoot(),
+            ngx_bootstrap_buttons__WEBPACK_IMPORTED_MODULE_19__["ButtonsModule"].forRoot(),
             ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_18__["TabsModule"].forRoot(),
             ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_16__["BsDropdownModule"].forRoot(),
-            ngx_bootstrap_datepicker__WEBPACK_IMPORTED_MODULE_33__["BsDatepickerModule"].forRoot(),
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_24__["appRoutes"]),
+            ngx_bootstrap_datepicker__WEBPACK_IMPORTED_MODULE_34__["BsDatepickerModule"].forRoot(),
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_25__["appRoutes"]),
             ngx_gallery__WEBPACK_IMPORTED_MODULE_6__["NgxGalleryModule"],
             ng2_file_upload__WEBPACK_IMPORTED_MODULE_7__["FileUploadModule"],
             _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_5__["JwtModule"].forRoot({
@@ -1023,10 +1027,10 @@ AppModule = __decorate([
         providers: [
             // AuthService,
             _services_error_interceptor__WEBPACK_IMPORTED_MODULE_15__["ErrorInterceptorProvider"],
-            _resolvers_member_detail_resolver__WEBPACK_IMPORTED_MODULE_27__["MemberDetailResolver"],
-            _resolvers_member_list_resolver__WEBPACK_IMPORTED_MODULE_28__["MemberListResolver"],
-            _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_30__["MemberEditResolver"],
-            _guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_31__["PreventUnsavedChanges"],
+            _resolvers_member_detail_resolver__WEBPACK_IMPORTED_MODULE_28__["MemberDetailResolver"],
+            _resolvers_member_list_resolver__WEBPACK_IMPORTED_MODULE_29__["MemberListResolver"],
+            _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_31__["MemberEditResolver"],
+            _guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_32__["PreventUnsavedChanges"],
             { provide: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["HAMMER_GESTURE_CONFIG"], useClass: CustomHammerConfig }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
@@ -1582,6 +1586,7 @@ let MemberListComponent = class MemberListComponent {
         this.userParams.gender = this.user.gender === 'female' ? 'male' : 'female';
         this.userParams.minAge = 18;
         this.userParams.maxAge = 99;
+        this.userParams.orderBy = 'lastActive';
     }
     pageChanged(event) {
         this.pagination.currentPage = event.page;

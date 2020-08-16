@@ -19,6 +19,7 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { TabsModule } from 'ngx-bootstrap/tabs'
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListsComponent } from './lists/lists.component';
@@ -76,6 +77,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       ReactiveFormsModule,
       BrowserAnimationsModule,
       PaginationModule.forRoot(),
+      ButtonsModule.forRoot(),
       TabsModule.forRoot(),
       BsDropdownModule.forRoot(),
       BsDatepickerModule.forRoot(),
