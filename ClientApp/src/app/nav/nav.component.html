@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand" [routerLink]="['/home']">BirdwachingApp</a>
 
-        <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
+        <ul *ngIf="loggedIn()" class="navbar-nav mr-auto" id="navbarColor03">
             <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['/members']">Matches</a>
             </li>
