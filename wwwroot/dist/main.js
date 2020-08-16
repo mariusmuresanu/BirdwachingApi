@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>lists works!</p>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"text-center mt-3\">\n    <h2>{{likesParam === 'Likers' ? 'Members who like me' : 'Members who I\\'ve Liked'}} : {{pagination.totalItems}}</h2>\n</div>\n\n<div class=\"container mt-3\">\n\n    <div class=\"row\">\n        <div class=\"btn-group\">\n            <button class=\"btn btn-primary\" [(ngModel)]=\"likesParam\" btnRadio=\"Likers\" (click)=\"loadUsers()\">Members who like me</button>\n            <button class=\"btn btn-primary\" [(ngModel)]=\"likesParam\" btnRadio=\"Likees\" (click)=\"loadUsers()\">Members who I like</button>\n        </div>\n    </div>\n\n    <br>\n\n    <div class=\"row\">\n        <div *ngFor=\"let user of users\" class=\"col-sm-6 col-md-4 col-lg-4 col-xl-2\">\n            <app-member-card [user]=\"user\"></app-member-card>\n        </div>\n    </div>\n\n\n\n</div>\n\n<div class=\"d-flex justify-content-center\">\n    <pagination [boundaryLinks]=\"true\" [totalItems]=\"pagination.totalItems\" [itemsPerPage]=\"pagination.itemsPerPage\" [(ngModel)]=\"pagination.currentPage\"\n                (pageChanged)=\"pageChanged($event)\" previousText=\"&lsaquo;\" nextText=\"&rsaquo;\" firstText=\"&laquo;\" lastText=\"&raquo;\">\n\n    </pagination>\n</div>\n");
 
 /***/ }),
 
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\r\n    <div class=\"card-img-wrapper\">\r\n        <img class=\"card-img-top\"\r\n             src=\"{{ user.photoUrl || '../../../assets/user.png'}}\"\r\n             alt=\"{{ user.knownAs }}\" />\r\n        <ul class=\"list-inline member-icons animate text-center\">\r\n            <li class=\"list-inline-item\">\r\n            <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\">\r\n                <i class=\"fa fa-user\"></i></button></li>\r\n            <li class=\"list-inline-item\">\r\n            <button class=\"btn btn-primary\">\r\n                <i class=\"fa fa-heart\"></i></button></li>\r\n            <li class=\"list-inline-item\">\r\n            <button class=\"btn btn-primary\">\r\n                <i class=\"fa fa-envelope\"></i></button></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"card-body p-1\">\r\n        <h6 class=\"card-title text-center mb-1\">\r\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\r\n        </h6>\r\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\r\n    </div>\r\n\r\n\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\r\n    <div class=\"card-img-wrapper\">\r\n        <img class=\"card-img-top\"\r\n             src=\"{{ user.photoUrl || '../../../assets/user.png'}}\"\r\n             alt=\"{{ user.knownAs }}\" />\r\n        <ul class=\"list-inline member-icons animate text-center\">\r\n            <li class=\"list-inline-item\">\r\n            <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\">\r\n                <i class=\"fa fa-user\"></i></button></li>\r\n            <li class=\"list-inline-item\">\r\n            <button class=\"btn btn-primary\" (click)=\"sendLike(user.id)\">\r\n                <i class=\"fa fa-heart\"></i></button></li>\r\n            <li class=\"list-inline-item\">\r\n            <button class=\"btn btn-primary\">\r\n                <i class=\"fa fa-envelope\"></i></button></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"card-body p-1\">\r\n        <h6 class=\"card-title text-center mb-1\">\r\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\r\n        </h6>\r\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\r\n    </div>\r\n\r\n\r\n</div>\r\n");
 
 /***/ }),
 
@@ -318,6 +318,75 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 };
 class PaginatedResult {
 }
+
+
+/***/ }),
+
+/***/ "./src/app/_resolvers/lists.resolver.ts":
+/*!**********************************************!*\
+  !*** ./src/app/_resolvers/lists.resolver.ts ***!
+  \**********************************************/
+/*! exports provided: ListsResolver */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListsResolver", function() { return ListsResolver; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_services/user.service */ "./src/app/_services/user.service.ts");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+
+
+let ListsResolver = class ListsResolver {
+    constructor(userService, router, alertify) {
+        this.userService = userService;
+        this.router = router;
+        this.alertify = alertify;
+        this.pageNumber = 1;
+        this.pageSize = 5;
+        this.likesParam = 'Likers';
+    }
+    resolve(route) {
+        return this.userService
+            .getUsers(this.pageNumber, this.pageSize, null, this.likesParam)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => {
+            this.alertify.error('Problem retrieving data');
+            this.router.navigate(['/home']);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(null);
+        }));
+    }
+};
+ListsResolver.ctorParameters = () => [
+    { type: _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] },
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"] }
+];
+ListsResolver = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+    __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+        _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"]])
+], ListsResolver);
+
 
 
 /***/ }),
@@ -765,7 +834,7 @@ let UserService = class UserService {
         this.http = http;
         this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl;
     }
-    getUsers(page, itemsPerPage, userParams) {
+    getUsers(page, itemsPerPage, userParams, likesParam) {
         const paginatedResult = new _models_pagination__WEBPACK_IMPORTED_MODULE_3__["PaginatedResult"]();
         let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
         if (page != null && itemsPerPage != null) {
@@ -777,6 +846,12 @@ let UserService = class UserService {
             params = params.append('maxAge', userParams.maxAge);
             params = params.append('gender', userParams.gender);
             params = params.append('orderBy', userParams.orderBy);
+        }
+        if (likesParam === 'Likers') {
+            params = params.append('Likers', 'true');
+        }
+        if (likesParam === 'Likees') {
+            params = params.append('Likees', 'true');
         }
         return this.http.get(this.baseUrl + 'users', { observe: 'response', params })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => {
@@ -798,6 +873,9 @@ let UserService = class UserService {
     }
     deletePhoto(userId, id) {
         return this.http.delete(this.baseUrl + 'users/' + userId + '/photos/' + id);
+    }
+    sendLike(id, recipientId) {
+        return this.http.post(this.baseUrl + 'users/' + id + '/like/' + recipientId, {});
     }
 };
 UserService.ctorParameters = () => [
@@ -923,6 +1001,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _members_photo_editor_photo_editor_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./members/photo-editor/photo-editor.component */ "./src/app/members/photo-editor/photo-editor.component.ts");
 /* harmony import */ var ngx_bootstrap_datepicker__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ngx-bootstrap/datepicker */ "./node_modules/ngx-bootstrap/datepicker/fesm2015/ngx-bootstrap-datepicker.js");
 /* harmony import */ var time_ago_pipe__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! time-ago-pipe */ "./node_modules/time-ago-pipe/esm2015/time-ago-pipe.js");
+/* harmony import */ var _resolvers_lists_resolver__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./_resolvers/lists.resolver */ "./src/app/_resolvers/lists.resolver.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -932,6 +1011,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -1031,6 +1111,7 @@ AppModule = __decorate([
             _resolvers_member_list_resolver__WEBPACK_IMPORTED_MODULE_29__["MemberListResolver"],
             _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_31__["MemberEditResolver"],
             _guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_32__["PreventUnsavedChanges"],
+            _resolvers_lists_resolver__WEBPACK_IMPORTED_MODULE_36__["ListsResolver"],
             { provide: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["HAMMER_GESTURE_CONFIG"], useClass: CustomHammerConfig }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
@@ -1227,6 +1308,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListsComponent", function() { return ListsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_services/auth.service */ "./src/app/_services/auth.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_services/user.service */ "./src/app/_services/user.service.ts");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1240,18 +1325,53 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
+
+
+
+
 let ListsComponent = class ListsComponent {
-    constructor() { }
+    constructor(authService, userService, route, alertify) {
+        this.authService = authService;
+        this.userService = userService;
+        this.route = route;
+        this.alertify = alertify;
+    }
     ngOnInit() {
+        this.route.data.subscribe(data => {
+            this.users = data['users'].result;
+            this.pagination = data['users'].pagination;
+        });
+        this.likesParam = 'Likers';
+    }
+    loadUsers() {
+        this.userService
+            .getUsers(this.pagination.currentPage, this.pagination.itemsPerPage, null, this.likesParam)
+            .subscribe((res) => {
+            this.users = res.result;
+            this.pagination = res.pagination;
+        }, error => {
+            this.alertify.error(error);
+        });
+    }
+    pageChanged(event) {
+        this.pagination.currentPage = event.page;
+        this.loadUsers();
     }
 };
+ListsComponent.ctorParameters = () => [
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"] },
+    { type: _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"] }
+];
 ListsComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-lists',
         template: __importDefault(__webpack_require__(/*! raw-loader!./lists.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/lists/lists.component.html")).default,
         styles: [__importDefault(__webpack_require__(/*! ./lists.component.css */ "./src/app/lists/lists.component.css")).default]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"]])
 ], ListsComponent);
 
 
@@ -1282,6 +1402,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MemberCardComponent", function() { return MemberCardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_services/auth.service */ "./src/app/_services/auth.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_services/user.service */ "./src/app/_services/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1295,11 +1418,30 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
+
+
+
 let MemberCardComponent = class MemberCardComponent {
-    constructor() { }
+    constructor(authService, userService, alertify) {
+        this.authService = authService;
+        this.userService = userService;
+        this.alertify = alertify;
+    }
     ngOnInit() {
     }
+    sendLike(id) {
+        this.userService.sendLike(this.authService.decodedToken.nameid, id).subscribe(data => {
+            this.alertify.success('You have liked: ' + this.user.knownAs);
+        }, error => {
+            this.alertify.error(error);
+        });
+    }
 };
+MemberCardComponent.ctorParameters = () => [
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+    { type: _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_1__["AlertifyService"] }
+];
 __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
     __metadata("design:type", Object)
@@ -1310,7 +1452,7 @@ MemberCardComponent = __decorate([
         template: __importDefault(__webpack_require__(/*! raw-loader!./member-card.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-card/member-card.component.html")).default,
         styles: [__importDefault(__webpack_require__(/*! ./member-card.component.css */ "./src/app/members/member-card/member-card.component.css")).default]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _services_alertify_service__WEBPACK_IMPORTED_MODULE_1__["AlertifyService"]])
 ], MemberCardComponent);
 
 
@@ -2124,9 +2266,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./members/member-edit/member-edit.component */ "./src/app/members/member-edit/member-edit.component.ts");
 /* harmony import */ var _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./_resolvers/member-edit.resolver */ "./src/app/_resolvers/member-edit.resolver.ts");
 /* harmony import */ var _guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./_guards/prevent-unsaved-changes.guard */ "./src/app/_guards/prevent-unsaved-changes.guard.ts");
+/* harmony import */ var src_app_resolvers_lists_resolver__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/_resolvers/lists.resolver */ "./src/app/_resolvers/lists.resolver.ts");
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -2158,7 +2302,7 @@ const appRoutes = [
                 canDeactivate: [_guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_10__["PreventUnsavedChanges"]]
             },
             { path: 'messages', component: _messages_messages_component__WEBPACK_IMPORTED_MODULE_2__["MessagesComponent"] },
-            { path: 'lists', component: _lists_lists_component__WEBPACK_IMPORTED_MODULE_3__["ListsComponent"] }
+            { path: 'lists', component: _lists_lists_component__WEBPACK_IMPORTED_MODULE_3__["ListsComponent"], resolve: { users: src_app_resolvers_lists_resolver__WEBPACK_IMPORTED_MODULE_11__["ListsResolver"] } },
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' },
