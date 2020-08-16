@@ -7,6 +7,7 @@ using AutoMapper;
 using BirdwachingApi.Data;
 using BirdwachingApi.Dtos;
 using BirdwachingApi.Helpers;
+using BirdwachingApi.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,8 +20,8 @@ namespace BirdwachingApi.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-       private readonly IDatingRepository _repo;
-        private readonly IMapper _mapper; 
+        private readonly IDatingRepository _repo;
+        private readonly IMapper _mapper;
         public UsersController(IDatingRepository repo, IMapper mapper)
         {
             _mapper = mapper;
@@ -28,7 +29,7 @@ namespace BirdwachingApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsers([FromQuery]UserParams userParams)
+        public async Task<IActionResult> GetUsers([FromQuery] UserParams userParams)
         {
             var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
@@ -77,5 +78,33 @@ namespace BirdwachingApi.Controllers
 
         }
 
+        [HttpPost("{id}/like/{recipientId}")]
+        public async Task<IActionResult> LikeUser(int id, int recipientId)
+        {
+            if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
+            var like = await _repo.GetLike(id, recipientId);
+
+            if (like != null)
+                return BadRequest("You already like this user");
+
+            if (await _repo.GetUser(recipientId) == null)
+                return NotFound();
+
+            like = new Like
+            {
+                LikerId = id,
+                LikeeId = recipientId
+            };
+
+            _repo.Add<Like>(like);
+
+            if (await _repo.SaveAll())
+                return Ok();
+
+            return BadRequest("Failed to like user");
+
+        }
     }
 }
