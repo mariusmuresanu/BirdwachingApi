@@ -19,12 +19,14 @@ export class MemberListComponent implements OnInit {
     ];
     userParams: any = {};
     pagination: Pagination;
-    constructor(private userService: UserService, private alertify: AlertifyService, private route: ActivatedRoute) { }
+    constructor(private userService: UserService, private alertify: AlertifyService, private route: ActivatedRoute) {
+        this.loadUsers();
+    }
 
     ngOnInit() {
         this.route.data.subscribe(data => {
             this.users = data['users'].result;
-
+            
             this.pagination = data['users'].pagination;
         });
 
@@ -32,6 +34,7 @@ export class MemberListComponent implements OnInit {
         this.userParams.minAge = 18;
         this.userParams.maxAge = 99;
         this.userParams.orderBy = 'lastActive';
+        
     }
 
     pageChanged(event: any): void {

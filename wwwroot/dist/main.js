@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\r\n    <div class=\"card-img-wrapper\">\r\n        <img class=\"card-img-top\"\r\n             src=\"{{ user.photoUrl || '../../../assets/user.png'}}\"\r\n             alt=\"{{ user.knownAs }}\" />\r\n        <ul class=\"list-inline member-icons animate text-center\">\r\n            <li class=\"list-inline-item\">\r\n            <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\">\r\n                <i class=\"fa fa-user\"></i></button></li>\r\n            <li class=\"list-inline-item\">\r\n            <button class=\"btn btn-primary\" (click)=\"sendLike(user.id)\">\r\n                <i class=\"fa fa-heart\"></i></button></li>\r\n            <li class=\"list-inline-item\">\r\n            <button class=\"btn btn-primary\">\r\n                <i class=\"fa fa-envelope\"></i></button></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"card-body p-1\">\r\n        <h6 class=\"card-title text-center mb-1\">\r\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\r\n        </h6>\r\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\r\n    </div>\r\n\r\n\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\r\n    <div class=\"card-img-wrapper\">\r\n        <img class=\"card-img-top\"\r\n             src=\"{{ user.photoUrl || '../../../assets/user.png'}}\"\r\n             alt=\"{{ user.knownAs }}\" />\r\n        <ul class=\"list-inline member-icons animate text-center\">\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\">\r\n                    <i class=\"fa fa-user\"></i>\r\n                </button>\r\n            </li>\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" (click)=\"sendLike(user.id)\">\r\n                    <i class=\"fa fa-heart\"></i>\r\n                </button>\r\n            </li>\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\">\r\n                    <i class=\"fa fa-envelope\"></i>\r\n                </button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"card-body p-1\">\r\n        <h6 class=\"card-title text-center mb-1\">\r\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\r\n        </h6>\r\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\r\n    </div>\r\n\r\n    <div *ngFor=\"let photo of user.photos\">\r\n        <img src=\"{{ photo.url }}\" alt=\"{{ photo.description }}\" />\r\n    </div>\r\n\r\n</div>\r\n");
 
 /***/ }),
 
@@ -1719,6 +1719,7 @@ let MemberListComponent = class MemberListComponent {
             { value: 'female', display: 'Females' }
         ];
         this.userParams = {};
+        this.loadUsers();
     }
     ngOnInit() {
         this.route.data.subscribe(data => {
