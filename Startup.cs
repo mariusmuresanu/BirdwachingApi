@@ -102,6 +102,7 @@ namespace BirdwachingApi
 
             app.UseSpaStaticFiles();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
