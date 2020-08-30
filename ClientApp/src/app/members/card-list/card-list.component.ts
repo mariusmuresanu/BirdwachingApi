@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../_models/user';
 import { AuthService } from '../../_services/auth.service';
 import { UserService } from '../../_services/user.service';
 import { AlertifyService } from '../../_services/alertify.service';
+import { User } from '../../_models/user';
 
 @Component({
-  selector: 'app-card-list',
-  templateUrl: './card-list.component.html',
-  styleUrls: ['./card-list.component.css']
+    selector: 'app-card-list',
+    templateUrl: './card-list.component.html',
+    styleUrls: ['./card-list.component.css']
 })
 export class CardListComponent implements OnInit {
     @Input() user: User;
@@ -25,4 +25,5 @@ export class CardListComponent implements OnInit {
             this.alertify.error(error);
         });
     }
+
 }

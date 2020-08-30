@@ -7,9 +7,9 @@ import { AlertifyService } from '../_services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-lists',
-  templateUrl: './lists.component.html',
-  styleUrls: ['./lists.component.css']
+    selector: 'app-lists',
+    templateUrl: './lists.component.html',
+    styleUrls: ['./lists.component.css']
 })
 export class ListsComponent implements OnInit {
 
