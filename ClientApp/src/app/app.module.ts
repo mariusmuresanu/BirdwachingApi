@@ -37,6 +37,7 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { ListsResolver } from './_resolvers/lists.resolver';
+import { CardListComponent } from './members/card-list/card-list.component';
 
 
 
@@ -68,7 +69,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
         MemberDetailComponent,
         TimeAgoPipe,
     MemberEditComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    CardListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -65,6 +65,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/card-list/card-list.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/members/card-list/card-list.component.html ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\r\n    <div class=\"card-img-wrapper\">\r\n        <img class=\"card-img-top\"\r\n             src=\"{{ user.photoUrl || '../../../assets/user.png'}}\"\r\n             alt=\"{{ user.knownAs }}\" />\r\n        <ul class=\"list-inline member-icons animate text-center\">\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\">\r\n                    <i class=\"fa fa-user\"></i>\r\n                </button>\r\n            </li>\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" (click)=\"sendLike(user.id)\">\r\n                    <i class=\"fa fa-heart\"></i>\r\n                </button>\r\n            </li>\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\">\r\n                    <i class=\"fa fa-envelope\"></i>\r\n                </button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"card-body p-1\">\r\n        <h6 class=\"card-title text-center mb-1\">\r\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\r\n        </h6>\r\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\r\n    </div>\r\n\r\n    <div *ngFor=\"let photo of user.photos\">\r\n        <img src=\"{{ photo.url }}\" alt=\"{{ photo.description }}\" />\r\n    </div>\r\n\r\n\r\n</div>\r\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-card/member-card.component.html":
 /*!******************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-card/member-card.component.html ***!
@@ -113,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"text-center mt-3\">\r\n    <h2>Your matches - {{pagination.totalItems}} found</h2>\r\n</div>\r\n\r\n<div class=\"container mt-3\">\r\n\r\n    <form class=\"form-inline\" #form=\"ngForm\" (ngSubmit)=\"loadUsers()\" novalidate>\r\n        <div class=\"form-group\">\r\n            <label for=\"minAge\">Age From</label>\r\n            <input type=\"number\" class=\"form-control ml-1\" style=\"width: 70px\" id=\"minAge\"\r\n                   [(ngModel)]=\"userParams.minAge\" name=\"minAge\">\r\n        </div>\r\n\r\n        <div class=\"form-group px-2\">\r\n            <label for=\"maxAge\">Age To</label>\r\n            <input type=\"number\" class=\"form-control ml-1\" style=\"width: 70px\" id=\"maxAge\"\r\n                   [(ngModel)]=\"userParams.maxAge\" name=\"maxAge\">\r\n        </div>\r\n\r\n        <div class=\"form-group px-2\">\r\n            <label for=\"gender\">Show: </label>\r\n            <select class=\"form-control ml-1\" style=\"width: 130px\" id=\"gender\"\r\n                    [(ngModel)]=\"userParams.gender\" name=\"gender\">\r\n                <option *ngFor=\"let gender of genderList\" [value]=\"gender.value\">\r\n                    {{gender.display}}\r\n                </option>\r\n            </select>\r\n        </div>\r\n        <button type=\"submit\" class=\"btn btn-primary\" style=\"margin-left:10px\">Apply Filters</button>\r\n        <button type=\"button\" class=\"btn btn-info\" (click)=\"resetFilters()\" style=\"margin-left:10px\">\r\n            Reset Filter\r\n        </button>\r\n        <div class=\"col\">\r\n            <div class=\"btn-group float-right\">\r\n                <button type=\"button\" name=\"orderBy\" class=\"btn btn-primary\"\r\n                        [(ngModel)]=\"userParams.orderBy\" (click)=\"loadUsers()\" btnRadio=\"lastActive\">\r\n                    Last Active\r\n                </button>\r\n                <button type=\"button\" name=\"orderBy\" class=\"btn btn-primary\"\r\n                        [(ngModel)]=\"userParams.orderBy\" (click)=\"loadUsers()\" btnRadio=\"created\">\r\n                    Newest Members\r\n                </button>\r\n            </div>\r\n        </div>\r\n\r\n    </form>\r\n    <br>\r\n\r\n\r\n    <div class=\"row\">\r\n        <div *ngFor=\"let user of users\" class=\"col-lg-2 col-md-3 col-sm-6\">\r\n            <app-member-card [user]=\"user\"></app-member-card>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"d-flex justify-content-center\">\r\n    <pagination [boundaryLinks]=\"true\"\r\n                [totalItems]=\"pagination.totalItems\"\r\n                [(ngModel)]=\"pagination.currentPage\"\r\n                [itemsPerPage]=\"pagination.itemsPerPage\"\r\n                (pageChanged)=\"pageChanged($event)\"\r\n                previousText=\"&lsaquo;\" nextText=\"&rsaquo;\" firstText=\"&laquo;\" lastText=\"&raquo;\">\r\n\r\n    </pagination>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"text-center mt-3\">\r\n    <h2>Your matches - {{pagination.totalItems}} found</h2>\r\n</div>\r\n\r\n<div class=\"container mt-3\">\r\n\r\n    <form class=\"form-inline\" #form=\"ngForm\" (ngSubmit)=\"loadUsers()\" novalidate>\r\n        <div class=\"form-group\">\r\n            <label for=\"minAge\">Age From</label>\r\n            <input type=\"number\" class=\"form-control ml-1\" style=\"width: 70px\" id=\"minAge\"\r\n                   [(ngModel)]=\"userParams.minAge\" name=\"minAge\">\r\n        </div>\r\n\r\n        <div class=\"form-group px-2\">\r\n            <label for=\"maxAge\">Age To</label>\r\n            <input type=\"number\" class=\"form-control ml-1\" style=\"width: 70px\" id=\"maxAge\"\r\n                   [(ngModel)]=\"userParams.maxAge\" name=\"maxAge\">\r\n        </div>\r\n\r\n        <div class=\"form-group px-2\">\r\n            <label for=\"gender\">Show: </label>\r\n            <select class=\"form-control ml-1\" style=\"width: 130px\" id=\"gender\"\r\n                    [(ngModel)]=\"userParams.gender\" name=\"gender\">\r\n                <option *ngFor=\"let gender of genderList\" [value]=\"gender.value\">\r\n                    {{gender.display}}\r\n                </option>\r\n            </select>\r\n        </div>\r\n        <button type=\"submit\" class=\"btn btn-primary\" style=\"margin-left:10px\">Apply Filters</button>\r\n        <button type=\"button\" class=\"btn btn-info\" (click)=\"resetFilters()\" style=\"margin-left:10px\">\r\n            Reset Filter\r\n        </button>\r\n        <div class=\"col\">\r\n            <div class=\"btn-group float-right\">\r\n                <button type=\"button\" name=\"orderBy\" class=\"btn btn-primary\"\r\n                        [(ngModel)]=\"userParams.orderBy\" (click)=\"loadUsers()\" btnRadio=\"lastActive\">\r\n                    Last Active\r\n                </button>\r\n                <button type=\"button\" name=\"orderBy\" class=\"btn btn-primary\"\r\n                        [(ngModel)]=\"userParams.orderBy\" (click)=\"loadUsers()\" btnRadio=\"created\">\r\n                    Newest Members\r\n                </button>\r\n            </div>\r\n        </div>\r\n\r\n    </form>\r\n    <br>\r\n\r\n\r\n    <div class=\"row\">\r\n        <div *ngFor=\"let user of users\" class=\"col-lg-2 col-md-3 col-sm-6\">\r\n            <app-card-list [user]=\"user\"></app-card-list>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"d-flex justify-content-center\">\r\n    <pagination [boundaryLinks]=\"true\"\r\n                [totalItems]=\"pagination.totalItems\"\r\n                [(ngModel)]=\"pagination.currentPage\"\r\n                [itemsPerPage]=\"pagination.itemsPerPage\"\r\n                (pageChanged)=\"pageChanged($event)\"\r\n                previousText=\"&lsaquo;\" nextText=\"&rsaquo;\" firstText=\"&laquo;\" lastText=\"&raquo;\">\r\n\r\n    </pagination>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -1002,6 +1015,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_bootstrap_datepicker__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ngx-bootstrap/datepicker */ "./node_modules/ngx-bootstrap/datepicker/fesm2015/ngx-bootstrap-datepicker.js");
 /* harmony import */ var time_ago_pipe__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! time-ago-pipe */ "./node_modules/time-ago-pipe/esm2015/time-ago-pipe.js");
 /* harmony import */ var _resolvers_lists_resolver__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./_resolvers/lists.resolver */ "./src/app/_resolvers/lists.resolver.ts");
+/* harmony import */ var _members_card_list_card_list_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./members/card-list/card-list.component */ "./src/app/members/card-list/card-list.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1011,6 +1025,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -1079,7 +1094,8 @@ AppModule = __decorate([
             _members_member_detail_member_detail_component__WEBPACK_IMPORTED_MODULE_27__["MemberDetailComponent"],
             time_ago_pipe__WEBPACK_IMPORTED_MODULE_35__["TimeAgoPipe"],
             _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_30__["MemberEditComponent"],
-            _members_photo_editor_photo_editor_component__WEBPACK_IMPORTED_MODULE_33__["PhotoEditorComponent"]
+            _members_photo_editor_photo_editor_component__WEBPACK_IMPORTED_MODULE_33__["PhotoEditorComponent"],
+            _members_card_list_card_list_component__WEBPACK_IMPORTED_MODULE_37__["CardListComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
@@ -1373,6 +1389,89 @@ ListsComponent = __decorate([
     __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"]])
 ], ListsComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/card-list/card-list.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/members/card-list/card-list.component.css ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".card:hover img {\n    transform: scale(1.2, 1.2);\n    transition-duration: 500ms;\n    transition-timing-function: ease-out;\n    opacity: 0.7;\n}\n\n.card img {\n    transform: scale(1.0, 1.0);\n    transition-duration: 500ms;\n    transition-timing-function: ease-out\n}\n\n.card-img-wrapper {\n    overflow: hidden;\n    position: relative;\n}\n\n.member-icons {\n    position: absolute;\n    bottom: -30%;\n    left: 0;\n    right: 0;\n    margin-left: auto;\n    margin-right: auto;\n    opacity: 0;\n}\n\n.card-img-wrapper:hover .member-icons {\n    bottom: 0;\n    opacity: 1;\n}\n\n.animate {\n    transition: all 0.3s ease-in-out;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy9jYXJkLWxpc3QvY2FyZC1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSwwQkFBMEI7SUFDMUIsMEJBQTBCO0lBQzFCLG9DQUFvQztJQUNwQyxZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksMEJBQTBCO0lBQzFCLDBCQUEwQjtJQUMxQjtBQUNKOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osT0FBTztJQUNQLFFBQVE7SUFDUixpQkFBaUI7SUFDakIsa0JBQWtCO0lBQ2xCLFVBQVU7QUFDZDs7QUFFQTtJQUNJLFNBQVM7SUFDVCxVQUFVO0FBQ2Q7O0FBRUE7SUFDSSxnQ0FBZ0M7QUFDcEMiLCJmaWxlIjoic3JjL2FwcC9tZW1iZXJzL2NhcmQtbGlzdC9jYXJkLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jYXJkOmhvdmVyIGltZyB7XG4gICAgdHJhbnNmb3JtOiBzY2FsZSgxLjIsIDEuMik7XG4gICAgdHJhbnNpdGlvbi1kdXJhdGlvbjogNTAwbXM7XG4gICAgdHJhbnNpdGlvbi10aW1pbmctZnVuY3Rpb246IGVhc2Utb3V0O1xuICAgIG9wYWNpdHk6IDAuNztcbn1cblxuLmNhcmQgaW1nIHtcbiAgICB0cmFuc2Zvcm06IHNjYWxlKDEuMCwgMS4wKTtcbiAgICB0cmFuc2l0aW9uLWR1cmF0aW9uOiA1MDBtcztcbiAgICB0cmFuc2l0aW9uLXRpbWluZy1mdW5jdGlvbjogZWFzZS1vdXRcbn1cblxuLmNhcmQtaW1nLXdyYXBwZXIge1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuXG4ubWVtYmVyLWljb25zIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgYm90dG9tOiAtMzAlO1xuICAgIGxlZnQ6IDA7XG4gICAgcmlnaHQ6IDA7XG4gICAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gICAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xuICAgIG9wYWNpdHk6IDA7XG59XG5cbi5jYXJkLWltZy13cmFwcGVyOmhvdmVyIC5tZW1iZXItaWNvbnMge1xuICAgIGJvdHRvbTogMDtcbiAgICBvcGFjaXR5OiAxO1xufVxuXG4uYW5pbWF0ZSB7XG4gICAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZS1pbi1vdXQ7XG59XG4iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/members/card-list/card-list.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/members/card-list/card-list.component.ts ***!
+  \**********************************************************/
+/*! exports provided: CardListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CardListComponent", function() { return CardListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../_services/auth.service */ "./src/app/_services/auth.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_services/user.service */ "./src/app/_services/user.service.ts");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+let CardListComponent = class CardListComponent {
+    constructor(authService, userService, alertify) {
+        this.authService = authService;
+        this.userService = userService;
+        this.alertify = alertify;
+    }
+    ngOnInit() {
+    }
+    sendLike(id) {
+        this.userService.sendLike(this.authService.decodedToken.nameid, id).subscribe(data => {
+            this.alertify.success('You have liked: ' + this.user.knownAs);
+        }, error => {
+            this.alertify.error(error);
+        });
+    }
+};
+CardListComponent.ctorParameters = () => [
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"] },
+    { type: _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"] }
+];
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", Object)
+], CardListComponent.prototype, "user", void 0);
+CardListComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-card-list',
+        template: __importDefault(__webpack_require__(/*! raw-loader!./card-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/card-list/card-list.component.html")).default,
+        styles: [__importDefault(__webpack_require__(/*! ./card-list.component.css */ "./src/app/members/card-list/card-list.component.css")).default]
+    }),
+    __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+        _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+        _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"]])
+], CardListComponent);
 
 
 
