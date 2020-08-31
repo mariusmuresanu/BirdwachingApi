@@ -38,6 +38,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { ListsResolver } from './_resolvers/lists.resolver';
 import { CardListComponent } from './members/card-list/card-list.component';
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 
 
 
@@ -70,7 +72,9 @@ export class CustomHammerConfig extends HammerGestureConfig {
         TimeAgoPipe,
     MemberEditComponent,
     PhotoEditorComponent,
-    CardListComponent
+    CardListComponent,
+        MemberMessagesComponent,
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -103,6 +107,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
         MemberEditResolver,
         PreventUnsavedChanges,
         ListsResolver,
+        MessagesResolver,
         { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
     ],
   bootstrap: [AppComponent]

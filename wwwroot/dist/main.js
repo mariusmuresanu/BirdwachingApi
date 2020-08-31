@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\r\n    <div class=\"card-img-wrapper\">\r\n        <img class=\"card-img-top\"\r\n             src=\"{{ user.photoUrl || '../../../assets/user.png'}}\"\r\n             alt=\"{{ user.knownAs }}\" />\r\n        <ul class=\"list-inline member-icons animate text-center\">\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\">\r\n                    <i class=\"fa fa-user\"></i>\r\n                </button>\r\n            </li>\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" (click)=\"sendLike(user.id)\">\r\n                    <i class=\"fa fa-heart\"></i>\r\n                </button>\r\n            </li>\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\">\r\n                    <i class=\"fa fa-envelope\"></i>\r\n                </button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"card-body p-1\">\r\n        <h6 class=\"card-title text-center mb-1\">\r\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\r\n        </h6>\r\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\r\n    </div>\r\n\r\n    <div *ngFor=\"let photo of user.photos\">\r\n        <img src=\"{{ photo.url }}\" alt=\"{{ photo.description }}\" />\r\n    </div>\r\n\r\n\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\r\n    <div class=\"card-img-wrapper\">\r\n        <img class=\"card-img-top\"\r\n             src=\"{{ user.photoUrl || '../../../assets/user.png'}}\"\r\n             alt=\"{{ user.knownAs }}\" />\r\n        <ul class=\"list-inline member-icons animate text-center\">\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\">\r\n                    <i class=\"fa fa-user\"></i>\r\n                </button>\r\n            </li>\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" (click)=\"sendLike(user.id)\">\r\n                    <i class=\"fa fa-heart\"></i>\r\n                </button>\r\n            </li>\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\"\r\n                        [routerLink]=\"['/members/', user.id]\"\r\n                        [queryParams]=\"{ tab: 3 }\">\r\n                    <i class=\"fa fa-envelope\"></i>\r\n                </button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"card-body p-1\">\r\n        <h6 class=\"card-title text-center mb-1\">\r\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\r\n        </h6>\r\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\r\n    </div>\r\n\r\n    <div *ngFor=\"let photo of user.photos\">\r\n        <img src=\"{{ photo.url }}\" alt=\"{{ photo.description }}\" />\r\n    </div>\r\n\r\n\r\n</div>\r\n");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\r\n    <div class=\"card-img-wrapper\">\r\n        <img class=\"card-img-top\"\r\n             src=\"{{ user.photoUrl || '../../../assets/user.png'}}\"\r\n             alt=\"{{ user.knownAs }}\" />\r\n        <ul class=\"list-inline member-icons animate text-center\">\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\">\r\n                    <i class=\"fa fa-user\"></i>\r\n                </button>\r\n            </li>\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" (click)=\"sendLike(user.id)\">\r\n                    <i class=\"fa fa-heart\"></i>\r\n                </button>\r\n            </li>\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\">\r\n                    <i class=\"fa fa-envelope\"></i>\r\n                </button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"card-body p-1\">\r\n        <h6 class=\"card-title text-center mb-1\">\r\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\r\n        </h6>\r\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\r\n    </div>\r\n\r\n\r\n\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-4\">\r\n    <div class=\"card-img-wrapper\">\r\n        <img class=\"card-img-top\"\r\n             src=\"{{ user.photoUrl || '../../../assets/user.png'}}\"\r\n             alt=\"{{ user.knownAs }}\" />\r\n        <ul class=\"list-inline member-icons animate text-center\">\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\">\r\n                    <i class=\"fa fa-user\"></i>\r\n                </button>\r\n            </li>\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" (click)=\"sendLike(user.id)\">\r\n                    <i class=\"fa fa-heart\"></i>\r\n                </button>\r\n            </li>\r\n            <li class=\"list-inline-item\">\r\n                <button class=\"btn btn-primary\" [routerLink]=\"['/members/', user.id]\" [queryParams]=\"{ tab: 3 }\">\r\n                    <i class=\"fa fa-envelope\"></i>\r\n                </button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"card-body p-1\">\r\n        <h6 class=\"card-title text-center mb-1\">\r\n            <i class=\"fa fa-user\"></i> {{ user.knownAs }}, {{ user.age }}\r\n        </h6>\r\n        <p class=\"card-text text-muted text-center\">{{ user.city }}</p>\r\n    </div>\r\n\r\n\r\n\r\n</div>\r\n");
 
 /***/ }),
 
@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container mt-4\">\r\n    <!--<div class=\"row\">\r\n        <h1>{{user.knownAs}}'s Profile</h1>\r\n    </div>-->\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-4\">\r\n            <div class=\"card\">\r\n                <img class=\"card-img-top img-thumbnail\" src=\"{{user.photoUrl || '../../../assets/user.png'}}\" alt=\"{{user.knownAs}}\">\r\n                <div class=\"card-body\">\r\n                    <div>\r\n                        <strong>Location</strong>\r\n                        <p>{{user.city}}, {{user.country}}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Age</strong>\r\n                        <p>{{user.age}}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Last Active</strong>\r\n                        <p>{{user.lastActive | timeAgo}}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Member since</strong>\r\n                        <p>{{user.created | date: 'mediumDate'}}</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                    <div class=\"btn-group d-flex\">\r\n                        <button class=\"btn btn-primary  w-100\">Like</button>\r\n                        <button class=\"btn btn-success  w-100\">Message</button>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-sm-8\">\r\n            <div class=\"tab-panel\">\r\n                <tabset  class=\"member-tabset\">\r\n                    <tab heading=\"About {{user.knownAs}}\">\r\n                        <h4>Description</h4>\r\n                        <p>{{user.introduction}}</p>\r\n                        <h4>Looking For</h4>\r\n                        <p>{{user.lookingFor}}</p>\r\n                    </tab>\r\n                    <tab heading=\"Interests\">\r\n                        <h4>Interests</h4>\r\n                        <p>{{user.interests}}</p>\r\n                    </tab>\r\n                    <tab heading=\"Photos\">\r\n                        <ngx-gallery [options]=\"galleryOptions\" [images]=\"galleryImages\"></ngx-gallery>\r\n                    </tab>\r\n                    <tab heading=\"Messages\">\r\n                        Messages will go here\r\n                    </tab>\r\n                </tabset>\r\n\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container mt-4\">\r\n    <!--<div class=\"row\">\r\n        <h1>{{user.knownAs}}'s Profile</h1>\r\n    </div>-->\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-4\">\r\n            <div class=\"card\">\r\n                <img class=\"card-img-top img-thumbnail\" src=\"{{user.photoUrl || '../../../assets/user.png'}}\" alt=\"{{user.knownAs}}\">\r\n                <div class=\"card-body\">\r\n                    <div>\r\n                        <strong>Location</strong>\r\n                        <p>{{user.city}}, {{user.country}}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Age</strong>\r\n                        <p>{{user.age}}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Last Active</strong>\r\n                        <p>{{user.lastActive | timeAgo}}</p>\r\n                    </div>\r\n                    <div>\r\n                        <strong>Member since</strong>\r\n                        <p>{{user.created | date: 'mediumDate'}}</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                    <div class=\"btn-group d-flex\">\r\n                        <button class=\"btn btn-primary  w-100\">Like</button>\r\n                        <button class=\"btn btn-success  w-100\" (click)=\"selectTab(3)\" >Message</button>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-sm-8\">\r\n            <div class=\"tab-panel\">\r\n                <tabset  class=\"member-tabset\" #memberTabs>\r\n                    <tab heading=\"About {{user.knownAs}}\">\r\n                        <h4>Description</h4>\r\n                        <p>{{user.introduction}}</p>\r\n                        <h4>Looking For</h4>\r\n                        <p>{{user.lookingFor}}</p>\r\n                    </tab>\r\n                    <tab heading=\"Interests\">\r\n                        <h4>Interests</h4>\r\n                        <p>{{user.interests}}</p>\r\n                    </tab>\r\n                    <tab heading=\"Photos\">\r\n                        <ngx-gallery [options]=\"galleryOptions\" [images]=\"galleryImages\"></ngx-gallery>\r\n                    </tab>\r\n                    <tab heading=\"Messages\">\r\n                        <app-member-messages [recipientId]=\"user.id\"></app-member-messages>\r\n                    </tab>\r\n                </tabset>\r\n\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -130,6 +130,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-messages/member-messages.component.html":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-messages/member-messages.component.html ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\r\n    <div class=\"card-body\">\r\n        <div *ngIf=\"messages?.length === 0\">\r\n            <p>No messages yet... say hi by using the message box below</p>\r\n        </div>\r\n        <ul class=\"chat\">\r\n            <li *ngFor=\"let message of messages\">\r\n                <!-- to them -->\r\n                <div *ngIf=\"message.senderId == recipientId\">\r\n                    <span class=\"chat-img float-left mr-2\">\r\n                        <img src=\"{{ message.senderPhotoUrl }}\"\r\n                             alt=\"{{ message.senderKnownAs }}\"\r\n                             class=\"rounded-circle\" />\r\n                    </span>\r\n                    <div class=\"chat-body\">\r\n                        <div class=\"header\">\r\n                            <strong class=\"primary-font\">{{ message.senderKnownAs }}</strong>\r\n                            <small class=\"text-muted float-right\">\r\n                                <span class=\"fa fa-clock-o\">\r\n                                    {{message.messageSent | timeAgo}}\r\n                                </span>\r\n                            </small>\r\n                        </div>\r\n                        <p>{{ message.content }}</p>\r\n                    </div>\r\n                </div>\r\n\r\n                <!-- to me -->\r\n                <div *ngIf=\"message.senderId != recipientId\">\r\n                    <span class=\"chat-img float-right ml-2\">\r\n                        <img src=\"{{ message.senderPhotoUrl }}\"\r\n                             alt=\"{{ message.senderKnownAs }}\"\r\n                             class=\"rounded-circle\" />\r\n                    </span>\r\n                    <div class=\"chat-body\">\r\n                        <div class=\"header\">\r\n                            <small class=\"text-muted\">\r\n                                <span class=\"fa fa-clock-o\">\r\n                                    {{ message.messageSent | timeAgo }}\r\n                                </span>\r\n                                <span *ngIf=\"!message.isRead\" class=\"text-danger\">(unread)</span>\r\n                                <span *ngIf=\"message.isRead\" class=\"text-success\">(Read {{ message.dateRead | timeAgo }})</span>\r\n                            </small>\r\n                            <strong class=\"primary-font float-right mt-2\">\r\n                                {{ message.senderKnownAs }}\r\n                            </strong>\r\n                        </div>\r\n                        <p>{{ message.content }}</p>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"card-footer\">\r\n        <form #messageForm=\"ngForm\" (ngSubmit)=\"messageForm.valid && sendMessage()\">\r\n            <div class=\"input-group\">\r\n                <input type=\"text\" [(ngModel)]=\"newMessage.content\" name=\"content\" required class=\"form-control input-sm mr\" placeholder=\"send a private message\" />\r\n                <div class=\"input-group-append\">\r\n                    <button [disabled]=\"!messageForm.valid\" class=\"btn btn-primary\">Send</button> \r\n                </div>\r\n\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>\r\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/photo-editor/photo-editor.component.html":
 /*!********************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/members/photo-editor/photo-editor.component.html ***!
@@ -152,7 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>messages works!</p>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container mt-5\">\r\n    <div class=\"row\">\r\n        <div class=\"btn-group\">\r\n            <button class=\"btn btn-primary\"\r\n                    [(ngModel)]=\"messageContainer\"\r\n                    btnRadio=\"Unread\"\r\n                    (click)=\"loadMessages()\">\r\n                <i class=\"fa fa-envelope\"></i> Unread\r\n            </button>\r\n            <button class=\"btn btn-primary\"\r\n                    [(ngModel)]=\"messageContainer\"\r\n                    btnRadio=\"Inbox\"\r\n                    (click)=\"loadMessages()\">\r\n                <i class=\"fa fa-envelope-open\"></i> Inbox\r\n            </button>\r\n            <button class=\"btn btn-primary\"\r\n                    [(ngModel)]=\"messageContainer\"\r\n                    btnRadio=\"Outbox\"\r\n                    (click)=\"loadMessages()\">\r\n                <i class=\"fa fa-paper-plane\"></i> Outbox\r\n            </button>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"row\" *ngIf=\"messages.length == 0\">\r\n        <h3>No messages</h3>\r\n    </div>\r\n\r\n    <div class=\"row\" *ngIf=\"messages.length > 0\">\r\n        <table class=\"table table-hover\" style=\"cursor: pointer\">\r\n            <tr>\r\n                <th style=\"width: 20%\">From / To</th>\r\n                <th style=\"width: 50%\">Message</th>\r\n\r\n                <th style=\"width: 20%\">Sent / Received</th>\r\n                <th style=\"width: 10%\"></th>\r\n            </tr>\r\n            <tr *ngFor=\"let message of messages\"\r\n                [routerLink]=\"[\r\n            '/members',\r\n            messageContainer == 'Outbox' ? message.recipientId : message.senderId]\" [queryParams]=\"{ tab: 3 }\">\r\n\r\n                <td>\r\n                    <div *ngIf=\"messageContainer != 'Outbox'\">\r\n                        <img src=\"{{ message?.senderPhotoUrl }}\"\r\n                             class=\"img-circle rounded-circle mr-1\" />\r\n                        <strong>{{ message.senderKnownAs }}</strong>\r\n                    </div>\r\n                    <div *ngIf=\"messageContainer == 'Outbox'\">\r\n                        <img src=\"{{ message?.recipientPhotoUrl }}\"\r\n                             class=\"img-circle rounded-circle mr-1\" />\r\n                        <strong>{{ message.recipientKnownAs }}</strong>\r\n                    </div>\r\n                </td>\r\n                <td>{{ message.content }}</td>\r\n                <td>{{ message.messageSent | timeAgo }}</td>\r\n                <td style=\"text-align: end\">\r\n                    <button class=\"btn btn-danger\"\r\n                            (click)=\"$event.stopPropagation()\"\r\n                            (click)=\"deleteMessage(message.id)\">\r\n                        Delete\r\n                    </button>\r\n                </td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"d-flex justify-content-center\">\r\n    <pagination [boundaryLinks]=\"true\"\r\n                [totalItems]=\"pagination.totalItems\"\r\n                [itemsPerPage]=\"pagination.itemsPerPage\"\r\n                [(ngModel)]=\"pagination.currentPage\"\r\n                (pageChanged)=\"pageChanged($event)\"\r\n                previousText=\"&lsaquo;\"\r\n                nextText=\"&rsaquo;\"\r\n                firstText=\"&laquo;\"\r\n                lastText=\"&raquo;\">\r\n    </pagination>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -603,6 +616,80 @@ MemberListResolver = __decorate([
 
 /***/ }),
 
+/***/ "./src/app/_resolvers/messages.resolver.ts":
+/*!*************************************************!*\
+  !*** ./src/app/_resolvers/messages.resolver.ts ***!
+  \*************************************************/
+/*! exports provided: MessagesResolver */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessagesResolver", function() { return MessagesResolver; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_services/user.service */ "./src/app/_services/user.service.ts");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../_services/auth.service */ "./src/app/_services/auth.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+
+
+
+let MessagesResolver = class MessagesResolver {
+    constructor(userService, router, alertify, authService) {
+        this.userService = userService;
+        this.router = router;
+        this.alertify = alertify;
+        this.authService = authService;
+        this.pageNumber = 1;
+        this.pageSize = 5;
+        this.messageContainer = 'Unread';
+    }
+    resolve(route) {
+        return this.userService
+            .getMessages(this.authService.decodedToken.nameid, this.pageNumber, this.pageSize, this.messageContainer)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => {
+            this.alertify.error('Problem retrieving messages');
+            this.router.navigate(['/home']);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(null);
+        }));
+    }
+};
+MessagesResolver.ctorParameters = () => [
+    { type: _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] },
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"] },
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"] }
+];
+MessagesResolver = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+    __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+        _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"],
+        _services_auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"]])
+], MessagesResolver);
+
+
+
+/***/ }),
+
 /***/ "./src/app/_services/alertify.service.ts":
 /*!***********************************************!*\
   !*** ./src/app/_services/alertify.service.ts ***!
@@ -890,6 +977,41 @@ let UserService = class UserService {
     sendLike(id, recipientId) {
         return this.http.post(this.baseUrl + 'users/' + id + '/like/' + recipientId, {});
     }
+    getMessages(id, page, itemsPerPage, messageContainer) {
+        const paginatedResult = new _models_pagination__WEBPACK_IMPORTED_MODULE_3__["PaginatedResult"]();
+        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
+        params = params.append('MessageContainer', messageContainer);
+        if (page != null && itemsPerPage != null) {
+            params = params.append('pageNumber', page);
+            params = params.append('pageSize', itemsPerPage);
+        }
+        return this.http
+            .get(this.baseUrl + 'users/' + id + '/messages', {
+            observe: 'response',
+            params
+        })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => {
+            paginatedResult.result = response.body;
+            if (response.headers.get('Pagination') !== null) {
+                paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+            }
+            return paginatedResult;
+        }));
+    }
+    getMessageThread(id, recipientId) {
+        return this.http.get(this.baseUrl + 'users/' + id + '/messages/thread/' + recipientId);
+    }
+    sendMessage(id, message) {
+        return this.http.post(this.baseUrl + 'users/' + id + '/messages', message);
+    }
+    deleteMessage(id, userId) {
+        return this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + id, {});
+    }
+    markAsRead(userId, messageId) {
+        this.http
+            .post(this.baseUrl + 'users/' + userId + '/messages/' + messageId + '/read', {})
+            .subscribe();
+    }
 };
 UserService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -1016,6 +1138,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var time_ago_pipe__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! time-ago-pipe */ "./node_modules/time-ago-pipe/esm2015/time-ago-pipe.js");
 /* harmony import */ var _resolvers_lists_resolver__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./_resolvers/lists.resolver */ "./src/app/_resolvers/lists.resolver.ts");
 /* harmony import */ var _members_card_list_card_list_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./members/card-list/card-list.component */ "./src/app/members/card-list/card-list.component.ts");
+/* harmony import */ var _resolvers_messages_resolver__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./_resolvers/messages.resolver */ "./src/app/_resolvers/messages.resolver.ts");
+/* harmony import */ var _members_member_messages_member_messages_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./members/member-messages/member-messages.component */ "./src/app/members/member-messages/member-messages.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1025,6 +1149,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
 
 
 
@@ -1095,7 +1221,8 @@ AppModule = __decorate([
             time_ago_pipe__WEBPACK_IMPORTED_MODULE_35__["TimeAgoPipe"],
             _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_30__["MemberEditComponent"],
             _members_photo_editor_photo_editor_component__WEBPACK_IMPORTED_MODULE_33__["PhotoEditorComponent"],
-            _members_card_list_card_list_component__WEBPACK_IMPORTED_MODULE_37__["CardListComponent"]
+            _members_card_list_card_list_component__WEBPACK_IMPORTED_MODULE_37__["CardListComponent"],
+            _members_member_messages_member_messages_component__WEBPACK_IMPORTED_MODULE_39__["MemberMessagesComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
@@ -1128,6 +1255,7 @@ AppModule = __decorate([
             _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_31__["MemberEditResolver"],
             _guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_32__["PreventUnsavedChanges"],
             _resolvers_lists_resolver__WEBPACK_IMPORTED_MODULE_36__["ListsResolver"],
+            _resolvers_messages_resolver__WEBPACK_IMPORTED_MODULE_38__["MessagesResolver"],
             { provide: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["HAMMER_GESTURE_CONFIG"], useClass: CustomHammerConfig }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
@@ -1587,6 +1715,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var ngx_gallery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-gallery */ "./node_modules/ngx-gallery/bundles/ngx-gallery.umd.js");
 /* harmony import */ var ngx_gallery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ngx_gallery__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-bootstrap/tabs */ "./node_modules/ngx-bootstrap/tabs/fesm2015/ngx-bootstrap-tabs.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1604,6 +1733,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 let MemberDetailComponent = class MemberDetailComponent {
     constructor(userService, alertify, route) {
         this.userService = userService;
@@ -1613,6 +1743,10 @@ let MemberDetailComponent = class MemberDetailComponent {
     ngOnInit() {
         this.route.data.subscribe(data => {
             this.user = data['user'];
+        });
+        this.route.queryParams.subscribe(params => {
+            const selectedTab = params['tab'];
+            this.memberTabs.tabs[selectedTab > 0 ? selectedTab : 0].active = true;
         });
         this.galleryOptions = [
             {
@@ -1638,12 +1772,19 @@ let MemberDetailComponent = class MemberDetailComponent {
         }
         return imageUrls;
     }
+    selectTab(tabId) {
+        this.memberTabs.tabs[tabId].active = true;
+    }
 };
 MemberDetailComponent.ctorParameters = () => [
     { type: _services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"] },
     { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }
 ];
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('memberTabs', { static: true }),
+    __metadata("design:type", ngx_bootstrap_tabs__WEBPACK_IMPORTED_MODULE_5__["TabsetComponent"])
+], MemberDetailComponent.prototype, "memberTabs", void 0);
 MemberDetailComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-member-detail',
@@ -1867,6 +2008,115 @@ MemberListComponent = __decorate([
 
 /***/ }),
 
+/***/ "./src/app/members/member-messages/member-messages.component.css":
+/*!***********************************************************************!*\
+  !*** ./src/app/members/member-messages/member-messages.component.css ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".card {\r\n    border: none;\r\n}\r\n\r\n.chat {\r\n    list-style: none;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.chat li {\r\n        margin-bottom: 10px;\r\n        border-bottom: 1px dotted #B3A9A9;\r\n    }\r\n\r\n.rounded-circle {\r\n    height: 50px;\r\n    width: 50px;\r\n}\r\n\r\n.card-body {\r\n    overflow-y: scroll;\r\n    height: 400px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy9tZW1iZXItbWVzc2FnZXMvbWVtYmVyLW1lc3NhZ2VzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLFNBQVM7SUFDVCxVQUFVO0FBQ2Q7O0FBRUk7UUFDSSxtQkFBbUI7UUFDbkIsaUNBQWlDO0lBQ3JDOztBQUVKO0lBQ0ksWUFBWTtJQUNaLFdBQVc7QUFDZjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixhQUFhO0FBQ2pCIiwiZmlsZSI6InNyYy9hcHAvbWVtYmVycy9tZW1iZXItbWVzc2FnZXMvbWVtYmVyLW1lc3NhZ2VzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2FyZCB7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbn1cclxuXHJcbi5jaGF0IHtcclxuICAgIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBwYWRkaW5nOiAwO1xyXG59XHJcblxyXG4gICAgLmNoYXQgbGkge1xyXG4gICAgICAgIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IGRvdHRlZCAjQjNBOUE5O1xyXG4gICAgfVxyXG5cclxuLnJvdW5kZWQtY2lyY2xlIHtcclxuICAgIGhlaWdodDogNTBweDtcclxuICAgIHdpZHRoOiA1MHB4O1xyXG59XHJcblxyXG4uY2FyZC1ib2R5IHtcclxuICAgIG92ZXJmbG93LXk6IHNjcm9sbDtcclxuICAgIGhlaWdodDogNDAwcHg7XHJcbn1cclxuIl19 */");
+
+/***/ }),
+
+/***/ "./src/app/members/member-messages/member-messages.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/members/member-messages/member-messages.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: MemberMessagesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MemberMessagesComponent", function() { return MemberMessagesComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../_services/user.service */ "./src/app/_services/user.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_services/auth.service */ "./src/app/_services/auth.service.ts");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+
+let MemberMessagesComponent = class MemberMessagesComponent {
+    constructor(userService, authService, alertify) {
+        this.userService = userService;
+        this.authService = authService;
+        this.alertify = alertify;
+        this.newMessage = {};
+    }
+    ngOnInit() {
+        this.loadMessages();
+    }
+    loadMessages() {
+        const currentUserId = +this.authService.decodedToken.nameid;
+        this.userService
+            .getMessageThread(this.authService.decodedToken.nameid, this.recipientId)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(messages => {
+            for (let i = 0; i < messages.length; i++) {
+                if (messages[i].isRead === false &&
+                    messages[i].recipientId === currentUserId) {
+                    this.userService.markAsRead(currentUserId, messages[i].id);
+                }
+            }
+        }))
+            .subscribe(messages => {
+            this.messages = messages;
+        }, error => {
+            this.alertify.error(error);
+        });
+    }
+    sendMessage() {
+        this.newMessage.recipientId = this.recipientId;
+        this.userService
+            .sendMessage(this.authService.decodedToken.nameid, this.newMessage)
+            .subscribe((message) => {
+            this.messages.unshift(message);
+            this.newMessage.content = '';
+        }, error => {
+            this.alertify.error(error);
+        });
+    }
+};
+MemberMessagesComponent.ctorParameters = () => [
+    { type: _services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"] },
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"] }
+];
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", Number)
+], MemberMessagesComponent.prototype, "recipientId", void 0);
+MemberMessagesComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-member-messages',
+        template: __importDefault(__webpack_require__(/*! raw-loader!./member-messages.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/members/member-messages/member-messages.component.html")).default,
+        styles: [__importDefault(__webpack_require__(/*! ./member-messages.component.css */ "./src/app/members/member-messages/member-messages.component.css")).default]
+    }),
+    __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"],
+        _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
+        _services_alertify_service__WEBPACK_IMPORTED_MODULE_3__["AlertifyService"]])
+], MemberMessagesComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/members/photo-editor/photo-editor.component.css":
 /*!*****************************************************************!*\
   !*** ./src/app/members/photo-editor/photo-editor.component.css ***!
@@ -2026,7 +2276,7 @@ PhotoEditorComponent = __decorate([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lc3NhZ2VzL21lc3NhZ2VzLmNvbXBvbmVudC5jc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("table {\r\n    margin-top: 15px;\r\n}\r\n\r\n.img-circle {\r\n    max-height: 50PX;\r\n}\r\n\r\ntd {\r\n    vertical-align: middle;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVzc2FnZXMvbWVzc2FnZXMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFFQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFDQTtJQUNJLHNCQUFzQjtBQUMxQiIsImZpbGUiOiJzcmMvYXBwL21lc3NhZ2VzL21lc3NhZ2VzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJ0YWJsZSB7XHJcbiAgICBtYXJnaW4tdG9wOiAxNXB4O1xyXG59XHJcblxyXG4uaW1nLWNpcmNsZSB7XHJcbiAgICBtYXgtaGVpZ2h0OiA1MFBYO1xyXG59XHJcbnRkIHtcclxuICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -2041,6 +2291,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessagesComponent", function() { return MessagesComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_services/user.service */ "./src/app/_services/user.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_services/auth.service */ "./src/app/_services/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2054,18 +2308,66 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
+
+
+
+
 let MessagesComponent = class MessagesComponent {
-    constructor() { }
+    constructor(userService, authService, route, alertify) {
+        this.userService = userService;
+        this.authService = authService;
+        this.route = route;
+        this.alertify = alertify;
+        this.messageContainer = 'Unread';
+    }
     ngOnInit() {
+        this.route.data.subscribe(data => {
+            this.messages = data['messages'].result;
+            this.pagination = data['messages'].pagination;
+        });
+    }
+    loadMessages() {
+        this.userService
+            .getMessages(this.authService.decodedToken.nameid, this.pagination.currentPage, this.pagination.itemsPerPage, this.messageContainer)
+            .subscribe((res) => {
+            this.messages = res.result;
+            this.pagination = res.pagination;
+        }, error => {
+            this.alertify.error(error);
+        });
+    }
+    deleteMessage(id) {
+        this.alertify.confirm('Are you sure you want to delete this message?', () => {
+            this.userService.deleteMessage(id, this.authService.decodedToken.nameid)
+                .subscribe(() => {
+                this.messages.splice(this.messages.findIndex(m => m.id === id), 1);
+                this.alertify.success('Message has been deleted');
+            }, error => {
+                this.alertify.error('Failed to delete the message');
+            });
+        });
+    }
+    pageChanged(event) {
+        this.pagination.currentPage = event.page;
+        this.loadMessages();
     }
 };
+MessagesComponent.ctorParameters = () => [
+    { type: _services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"] },
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _services_alertify_service__WEBPACK_IMPORTED_MODULE_4__["AlertifyService"] }
+];
 MessagesComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-messages',
         template: __importDefault(__webpack_require__(/*! raw-loader!./messages.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/messages/messages.component.html")).default,
         styles: [__importDefault(__webpack_require__(/*! ./messages.component.css */ "./src/app/messages/messages.component.css")).default]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"],
+        _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+        _services_alertify_service__WEBPACK_IMPORTED_MODULE_4__["AlertifyService"]])
 ], MessagesComponent);
 
 
@@ -2366,9 +2668,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./_resolvers/member-edit.resolver */ "./src/app/_resolvers/member-edit.resolver.ts");
 /* harmony import */ var _guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./_guards/prevent-unsaved-changes.guard */ "./src/app/_guards/prevent-unsaved-changes.guard.ts");
 /* harmony import */ var src_app_resolvers_lists_resolver__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/_resolvers/lists.resolver */ "./src/app/_resolvers/lists.resolver.ts");
+/* harmony import */ var _resolvers_messages_resolver__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./_resolvers/messages.resolver */ "./src/app/_resolvers/messages.resolver.ts");
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -2400,7 +2704,9 @@ const appRoutes = [
                 resolve: { user: _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_9__["MemberEditResolver"] },
                 canDeactivate: [_guards_prevent_unsaved_changes_guard__WEBPACK_IMPORTED_MODULE_10__["PreventUnsavedChanges"]]
             },
-            { path: 'messages', component: _messages_messages_component__WEBPACK_IMPORTED_MODULE_2__["MessagesComponent"] },
+            {
+                path: 'messages', component: _messages_messages_component__WEBPACK_IMPORTED_MODULE_2__["MessagesComponent"], resolve: { messages: _resolvers_messages_resolver__WEBPACK_IMPORTED_MODULE_12__["MessagesResolver"] }
+            },
             { path: 'lists', component: _lists_lists_component__WEBPACK_IMPORTED_MODULE_3__["ListsComponent"], resolve: { users: src_app_resolvers_lists_resolver__WEBPACK_IMPORTED_MODULE_11__["ListsResolver"] } },
         ]
     },

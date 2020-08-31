@@ -45,10 +45,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\app\_models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="ClientApp\src\assets\bootswatch\.github\stale.yml" />
     <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\CHANGELOG.md" />
     <None Include="ClientApp\src\assets\bootswatch\node_modules\websocket-driver\lib\websocket\driver.js" />
