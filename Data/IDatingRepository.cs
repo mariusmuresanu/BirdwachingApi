@@ -7,6 +7,8 @@ namespace BirdwachingApi.Data
 {
     public interface IDatingRepository
     {
+        object Photos { get; }
+
         void Add<T>(T entity) where T : class;
         void Delete<T>(T entity) where T : class;
         Task<bool> SaveAll();

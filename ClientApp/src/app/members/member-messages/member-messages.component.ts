@@ -23,7 +23,8 @@ export class MemberMessagesComponent implements OnInit {
 
     ngOnInit() {
         this.loadMessages();
-  }
+    }
+
     loadMessages() {
         const currentUserId = +this.authService.decodedToken.nameid;
         this.userService

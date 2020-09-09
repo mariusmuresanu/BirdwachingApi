@@ -37,10 +37,10 @@ namespace BirdwachingApi.Controllers
 
             userParams.UserId = currentUserId;
 
-            if (string.IsNullOrEmpty(userParams.Gender))
-            {
-                userParams.Gender = userFromRepo.Gender == "male" ? "female" : "male";
-            }
+            //if (string.IsNullOrEmpty(userParams.Gender))
+            //{
+            //    userParams.Gender = userFromRepo.Gender == "male" ? "female" : "male";
+            //}
 
             var users = await _repo.GetUsers(userParams);
 

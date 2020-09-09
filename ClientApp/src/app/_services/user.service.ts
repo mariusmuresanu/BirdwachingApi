@@ -6,12 +6,17 @@ import { User } from '../_models/user';
 import { PaginatedResult } from '../_models/pagination';
 import { map } from 'rxjs/operators';
 import { Message } from '../_models/message';
+import { Photo } from '../_models/photo';
 
 
 @Injectable({
     providedIn: 'root'
 })
 export class UserService {
+    getPhotos(currentPage: number, itemsPerPage: number, userParams: any) {
+        throw new Error("Method not implemented.");
+    }
+   
     baseUrl = environment.apiUrl;
 
     constructor(private http: HttpClient) { }
@@ -58,6 +63,12 @@ export class UserService {
     getUser(id): Observable<User> {
         return this.http.get<User>(this.baseUrl + 'users/' + id);
     }
+
+    //getPhotos(id: number, userId: number) {
+    //    const paginatedResult: PaginatedResult<Photo[]> = new PaginatedResult<Photo[]>();
+
+    //    return this.http.get<Photo[]>(this.baseUrl + 'users/' + userId + '/photos/' + id);
+    //}
 
     updateUser(id: number, user: User) {
         return this.http.put(this.baseUrl + 'users/' + id, user);
